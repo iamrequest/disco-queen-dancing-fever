@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m_floor2
+  m_Name: m_floor-arrow
   m_Shader: {fileID: -6465566751694194690, guid: da6c0196be5c670429257496fb5500ee, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -34,7 +34,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_F4A71BFB:
-        m_Texture: {fileID: 2800000, guid: 4ee03d9ec00d29d41818689301d7adae, type: 3}
+        m_Texture: {fileID: 2800000, guid: 54db2aa17a6edfe4490e99e6ff65ab06, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -52,12 +52,9 @@ Material:
     m_Ints: []
     m_Floats:
     - Vector1_9BFFF19D: 0.1
-    - Vector1_CDC5421: 128
+    - Vector1_CDC5421: 64
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _pulseScale: 1
-    - _timeScale: 1
-    - _worldSpaceScale: 0.1
     m_Colors:
-    - Color_AD7F4BFC: {r: 0.32463613, g: 0.2988608, b: 0.8679245, a: 0.5176471}
+    - Color_AD7F4BFC: {r: 0.95870656, g: 0.8306337, b: 0.9622642, a: 1}
   m_BuildTextureStacks: []
