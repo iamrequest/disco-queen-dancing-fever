@@ -81,3 +81,6 @@ crashlytics-build.properties
 # Odin inspector
 Assets/Plugins/Sirenix
 Assets/Plugins/Sirenix.meta
+
+Assets/TextMesh\ Pro/
+Assets/TextMesh\ Pro.meta
