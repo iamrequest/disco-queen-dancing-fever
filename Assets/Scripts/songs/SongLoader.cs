@@ -49,12 +49,48 @@ public static class SongLoader {
 
             metadata.fullDirectoryPath = Path.GetDirectoryName(metadataFullFilePath);
 
-            return metadata;
+            if (IsMetadataFileValid(metadata)) {
+                return metadata;
+            } else {
+                return null;
+            }
         } catch (System.Exception e) {
             Debug.LogError($"Failed to parse metadata file: {metadataFullFilePath}: {e.Message}");
             return null;
         }
     }
+
+    /// <summary>
+    /// Confirms that the contents of the metadata file are as expected.
+    /// Checks that the midi files listed in each difficulty setting exist in the current dir
+    /// </summary>
+    /// <param name="metadata"></param>
+    /// <returns></returns>    
+    private static bool IsMetadataFileValid(SongMetadata metadata) {
+        List<string> failureReasons = new List<string>();
+
+        // Validate that there are difficulty tracks for this song.
+        if (metadata.songDifficulties == null) {
+            failureReasons.Add("No difficulties exist for this song.\n");
+        } else {
+            if (metadata.songDifficulties.Count == 0) {
+                failureReasons.Add("No difficulties exist for this song.\n");
+            }
+
+            // Validate that each difficulty for this song has a MIDI file that exists in the current dir
+            foreach (SongDifficulty difficulty in metadata.songDifficulties) {
+                if (!File.Exists(metadata.fullDirectoryPath + "/" + difficulty.midiFilename)) {
+                    failureReasons.Add($"Difficulty [{difficulty.difficultyName}] is missing a midi track (File [{metadata.fullDirectoryPath + "/" + difficulty.midiFilename}] doesn't exist)\n");
+                }
+            }
+        }
+
+        if (failureReasons.Count > 0) {
+            string failureStr = string.Concat(failureReasons);
+            Debug.LogWarning($"Invalid metadata file [{metadata.songName}] at [{metadata.fullDirectoryPath}]:\n{failureStr}");
+        }
+        return failureReasons.Count == 0;
+    } 
 
     private static string GetTextFileContents(string filePath) {
         // Double check for safety

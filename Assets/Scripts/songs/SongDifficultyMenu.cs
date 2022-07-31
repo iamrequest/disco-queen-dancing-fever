@@ -49,7 +49,12 @@ public class SongDifficultyMenu : MonoBehaviour {
     [ButtonGroup("MenuGen")]
     private void DeleteSongMenuItems() {
         for (int i = 0; i < songDifficultyMenuItems.Count;) {
-            Destroy(songDifficultyMenuItems[songDifficultyMenuItems.Count - 1].gameObject);
+            if (Application.isPlaying) {
+                Destroy(songDifficultyMenuItems[songDifficultyMenuItems.Count - 1].gameObject);
+            } else {
+                DestroyImmediate(songDifficultyMenuItems[songDifficultyMenuItems.Count - 1].gameObject);
+            }
+
             songDifficultyMenuItems.RemoveAt(songDifficultyMenuItems.Count - 1);
         }
     }
