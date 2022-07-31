@@ -1,0 +1,3 @@
+[submodule "Assets/Plugins/smflite"]
+	path = Assets/Plugins/smflite
+	url = https://github.com/keijiro/smflite.git
