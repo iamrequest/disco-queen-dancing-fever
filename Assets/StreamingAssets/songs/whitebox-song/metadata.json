@@ -1,1 +1,4 @@
-hello world
+{
+    "songName": "Whitebox song 1",
+    "artistName":  "Artist"
+}
