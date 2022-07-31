@@ -6,6 +6,16 @@
 			"difficultyName": "Easy",
 			"midiFilename": "easy.mid",
 			"playerInputMidiTrack": 1
+		},
+		{
+			"difficultyName": "Medium",
+			"midiFilename": "easy.mid",
+			"playerInputMidiTrack": 1
+		},
+		{
+			"difficultyName": "Hard",
+			"midiFilename": "easy.mid",
+			"playerInputMidiTrack": 1
 		}
 	]
 }
