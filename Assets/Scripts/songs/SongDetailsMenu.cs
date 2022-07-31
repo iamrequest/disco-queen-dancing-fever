@@ -3,14 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SongMenu : MonoBehaviour {
+/// <summary>
+/// This is a menu that lists all of the songs.
+/// </summary>
+public class SongDetailsMenu : MonoBehaviour {
     // Items to render on the UI
-    public List<SongMenuItem> songMenuItems;
+    public List<SongDetailsMenuItem> songMenuItems;
 
     // List of songs
     public List<SongMetadata> songsMetadata;
 
     public GameObject songMenuItemPrefab;
+    public SongDifficultyMenu songDifficultyMenu;
 
 
     [Tooltip("Parent transform for song menu items")]
@@ -21,7 +25,6 @@ public class SongMenu : MonoBehaviour {
     public int itemsToDisplay;
     public int highlightedItemIndex;
     public int currentSongIndex;
-
 
     // Read song listing from StreamingAssets
     [Button]
@@ -45,7 +48,7 @@ public class SongMenu : MonoBehaviour {
 
         for (int i = 0; i < Mathf.Min(itemsToDisplay, songsMetadata.Count); i++) {
             GameObject songMenuItemInstance = Instantiate(songMenuItemPrefab, songMenuItemParentTransform);
-            SongMenuItem menuItem = songMenuItemInstance.GetComponent<SongMenuItem>();
+            SongDetailsMenuItem menuItem = songMenuItemInstance.GetComponent<SongDetailsMenuItem>();
             songMenuItems.Add(menuItem);
 
             menuItem.transform.localPosition = new Vector3(0f, i * itemHeight, 0f);
@@ -73,6 +76,9 @@ public class SongMenu : MonoBehaviour {
             songMenuItems[i].Render(songsMetadata[currentSongIndex + i], 
                 i == highlightedItemIndex);
         }
+
+        // Render difficulty menu
+        songDifficultyMenu.Render(GetSelectedSongMetadata());
     }
 
     // Menu interaction
@@ -102,7 +108,7 @@ public class SongMenu : MonoBehaviour {
 
     [Button]
     public SongMetadata GetSelectedSongMetadata() {
-        Debug.Log($"Selected song index: {highlightedItemIndex + currentSongIndex}");
+        //Debug.Log($"Selected song index: {highlightedItemIndex + currentSongIndex}");
         return songsMetadata[highlightedItemIndex + currentSongIndex];
     }
 }

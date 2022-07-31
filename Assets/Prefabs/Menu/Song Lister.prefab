@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 919549837246590883}
+  - component: {fileID: 4018352156817139175}
   m_Layer: 5
   m_Name: Song Listings
   m_TagString: Untagged
@@ -36,6 +37,87 @@ RectTransform:
   m_AnchoredPosition: {x: 0.2, y: -0.3}
   m_SizeDelta: {x: -2.2, y: -0.4}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &4018352156817139175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99960211297434431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227678f5e5af00742a14750150c512f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songMenuItems: []
+  songsMetadata: []
+  songMenuItemPrefab: {fileID: 6164652016752729394, guid: 5d337ce01f1320549832adab31640a62, type: 3}
+  songDifficultyMenu: {fileID: 596297737387494147}
+  songMenuItemParentTransform: {fileID: 919549837246590883}
+  itemHeight: -0.4
+  itemsToDisplay: 4
+  highlightedItemIndex: 0
+  currentSongIndex: 0
+--- !u!1 &481959043105762806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3857533576582932071}
+  - component: {fileID: 596297737387494147}
+  m_Layer: 5
+  m_Name: Difficulty Listings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3857533576582932071
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481959043105762806}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3975977693996099563}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -2, y: -0.3}
+  m_SizeDelta: {x: 1.8, y: 1.6}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &596297737387494147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481959043105762806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7655ebbeb503d9499093c973a08e346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songDifficultyMenuItems: []
+  songMetadata:
+    songName: 
+    artistName: 
+    fullDirectoryPath: 
+  songMenuItemPrefab: {fileID: 6164652016752729394, guid: 399b4b06bdc57eb4683aaa841317a18f, type: 3}
+  songMenuItemParentTransform: {fileID: 3857533576582932071}
+  itemHeight: 0.3
+  itemsToDisplay: 7
+  highlightedItemIndex: 0
+  currentDifficultyIndex: 0
 --- !u!1 &3975977693996099552
 GameObject:
   m_ObjectHideFlags: 0
@@ -49,7 +131,6 @@ GameObject:
   - component: {fileID: 3975977693996099565}
   - component: {fileID: 3975977693996099566}
   - component: {fileID: 3975977693996099567}
-  - component: {fileID: 2276451554049268510}
   m_Layer: 5
   m_Name: Song Lister
   m_TagString: Untagged
@@ -73,6 +154,7 @@ RectTransform:
   - {fileID: 3975977694658541311}
   - {fileID: 3975977695020332617}
   - {fileID: 919549837246590883}
+  - {fileID: 3857533576582932071}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -161,26 +243,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   m_RaycastTriggerInteraction: 1
---- !u!114 &2276451554049268510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3975977693996099552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 227678f5e5af00742a14750150c512f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  songMenuItems: []
-  songsMetadata: []
-  songMenuItemPrefab: {fileID: 6164652016752729394, guid: 5d337ce01f1320549832adab31640a62, type: 3}
-  songMenuItemParentTransform: {fileID: 919549837246590883}
-  itemHeight: -0.4
-  itemsToDisplay: 4
-  highlightedItemIndex: 0
-  currentSongIndex: 0
 --- !u!1 &3975977694099685301
 GameObject:
   m_ObjectHideFlags: 0
