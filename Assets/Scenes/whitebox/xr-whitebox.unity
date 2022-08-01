@@ -2150,6 +2150,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9195188399194994363, guid: 92867bc808e93074cb441096df64bf34, type: 3}
+      propertyPath: canDeselect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195188401137752193, guid: 92867bc808e93074cb441096df64bf34, type: 3}
+      propertyPath: canDeselect
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92867bc808e93074cb441096df64bf34, type: 3}
 --- !u!1001 &1148835603
@@ -4891,10 +4899,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4979907446829295770, guid: 7ddb41daee7735e46b31ba07a8397f24, type: 3}
-      propertyPath: m_InteractionManager
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4979907447115867946, guid: 7ddb41daee7735e46b31ba07a8397f24, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -4942,10 +4946,6 @@ PrefabInstance:
     - target: {fileID: 4979907447115867951, guid: 7ddb41daee7735e46b31ba07a8397f24, type: 3}
       propertyPath: m_Name
       value: XR Origin
-      objectReference: {fileID: 0}
-    - target: {fileID: 4979907448074282630, guid: 7ddb41daee7735e46b31ba07a8397f24, type: 3}
-      propertyPath: m_InteractionManager
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ddb41daee7735e46b31ba07a8397f24, type: 3}

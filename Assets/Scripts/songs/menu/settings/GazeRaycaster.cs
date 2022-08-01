@@ -27,4 +27,8 @@ public class GazeRaycaster : MonoBehaviour {
             }
         }
     }
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * maxDistance);
+    }
 }

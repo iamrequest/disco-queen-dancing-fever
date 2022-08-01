@@ -32,7 +32,7 @@ public class SettingsMenu : MonoBehaviour {
     }
     private void OnEnable() {
         // Hide the gaze icon on menu menu spawn
-        gazeIconDuration = gazeIconElapsedDuration;
+        gazeIconElapsedDuration = gazeIconDuration;
 
         buttonInputMethodControllers.onStateChanged.AddListener(SetInputMethodControllers);
         buttonInputMethodTrackers.onStateChanged.AddListener(SetInputMethodTrackers);
@@ -81,8 +81,11 @@ public class SettingsMenu : MonoBehaviour {
     }
 
     private void SetInputMethodTrackers(bool state) {
+        buttonInputMethodControllers.SetSelectedSilent(false, true);
     }
+
     private void SetInputMethodControllers(bool state) {
+        buttonInputMethodTrackers.SetSelectedSilent(false, true);
     }
 
 }

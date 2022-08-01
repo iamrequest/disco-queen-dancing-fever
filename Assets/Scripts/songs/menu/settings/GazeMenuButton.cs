@@ -36,13 +36,16 @@ public class GazeMenuButton : MonoBehaviour {
     /// Useful for initializing the state at the beginning of the game, without getting into stack overflows
     /// </summary>
     /// <param name="isSelected"></param>
+    /// <param name="force">If true, this ignores "canDeselect"</param>
     [Button]
-    public void SetSelectedSilent(bool isSelected) {
-        // Ignore setting the value if no change is made (avoid event spam)
-        if (isSelected && this.isSelected) return;
+    public void SetSelectedSilent(bool isSelected, bool force = false) {
+        if (!force) {
+            // Ignore setting the value if no change is made (avoid event spam)
+            if (isSelected && this.isSelected) return;
 
-        // Disallow de-selection, if that option is enabled
-        if (this.isSelected && !canDeselect) return;
+            // Disallow de-selection, if that option is enabled
+            if (this.isSelected && !canDeselect) return;
+        }
 
         this.isSelected = isSelected;
 
@@ -53,9 +56,14 @@ public class GazeMenuButton : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="isSelected"></param>
+    /// <param name="force">If true, this ignores "canDeselect"</param>
     [Button]
-    public void SetSelected(bool isSelected) {
-        SetSelectedSilent(isSelected);
+    public void SetSelected(bool isSelected, bool force = false) {
+        SetSelectedSilent(isSelected, force);
         onStateChanged.Invoke(isSelected);
     }
 
