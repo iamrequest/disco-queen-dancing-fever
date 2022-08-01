@@ -52,7 +52,6 @@ MonoBehaviour:
   songMenuItems: []
   songsMetadata: []
   songMenuItemPrefab: {fileID: 6164652016752729394, guid: 5d337ce01f1320549832adab31640a62, type: 3}
-  songDifficultyMenu: {fileID: 596297737387494147}
   songMenuItemParentTransform: {fileID: 919549837246590883}
   itemHeight: -0.4
   itemsToDisplay: 4
@@ -111,10 +110,12 @@ MonoBehaviour:
   songMetadata:
     songName: 
     artistName: 
+    bpm: 0
     fullDirectoryPath: 
+    songDifficulties: []
   songMenuItemPrefab: {fileID: 6164652016752729394, guid: 399b4b06bdc57eb4683aaa841317a18f, type: 3}
   songMenuItemParentTransform: {fileID: 3857533576582932071}
-  itemHeight: 0.3
+  itemHeight: -0.3
   itemsToDisplay: 7
   highlightedItemIndex: 0
   currentDifficultyIndex: 0

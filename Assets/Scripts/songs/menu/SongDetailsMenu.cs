@@ -7,6 +7,8 @@ using UnityEngine;
 /// This is a menu that lists all of the songs.
 /// </summary>
 public class SongDetailsMenu : MonoBehaviour {
+    public static SongDetailsMenu Instance { get; private set; }
+
     // Items to render on the UI
     public List<SongDetailsMenuItem> songMenuItems;
 
@@ -14,7 +16,6 @@ public class SongDetailsMenu : MonoBehaviour {
     public List<SongMetadata> songsMetadata;
 
     public GameObject songMenuItemPrefab;
-    public SongDifficultyMenu songDifficultyMenu;
 
 
     [Tooltip("Parent transform for song menu items")]
@@ -25,6 +26,18 @@ public class SongDetailsMenu : MonoBehaviour {
     public int itemsToDisplay;
     public int highlightedItemIndex;
     public int currentSongIndex;
+
+    private void Awake() {
+        if (Instance == null) {
+            Instance = this;
+        } else {
+            Debug.LogError($"Multiple {GetType()} components detected. This is probably a bug.");
+            Destroy(this);
+        }
+    }
+    private void Start() {
+        Render();
+    }
 
     // Read song listing from StreamingAssets
     [Button]
@@ -83,7 +96,7 @@ public class SongDetailsMenu : MonoBehaviour {
         }
 
         // Render difficulty menu
-        songDifficultyMenu.Render(GetSelectedSongMetadata());
+        SongDifficultyMenu.Instance.Render(GetSelectedSongMetadata());
     }
 
     // Menu interaction

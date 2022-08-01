@@ -1,10 +1,11 @@
 {
     "songName": "Raspberry Jam",
     "artistName":  "Artist",
+    "bpm":  120,
 	"songDifficulties": [
 		{
 			"difficultyName": "Easy",
-			"midiFilename": "easy.mid",
+			"midiFilename": "midi_export.mid",
 			"playerInputMidiTrack": 1
 		},
 		{

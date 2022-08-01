@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SmfLite;
 using Sirenix.OdinInspector;
+using System.IO;
 
 // See also: https://breno.sarmen.to/midi_documentation/list.html
 // See also: https://github.com/keijiro/smflite/tree/test
@@ -12,9 +13,11 @@ using Sirenix.OdinInspector;
 //          - Haven't come across other statuses in the input stream yet
 //      - Data1 represents pitch (0-255 I think, where 0 is C-1, 1 is C0, etc)
 //      - Data2 represents velocity (0-127)
+//      - If you put a note right at the beginning of the midi file, it won't be read by smflite
 public class MidiReadTest : MonoBehaviour {
     private MidiTrackSequencer sequencer;
     public TextAsset midiFile;
+    public string midiFilePath;
     public float bpm;
     public int track;
 
@@ -60,14 +63,22 @@ public class MidiReadTest : MonoBehaviour {
         MidiFileContainer song = MidiFileLoader.Load(midiFile.bytes);
         sequencer = new MidiTrackSequencer(song.tracks[track], song.division, bpm);
     }
-
     [Button]
+    public void LoadSongStr() {
+        byte[] bytes = File.ReadAllBytes(midiFilePath);
+        Debug.Log($"From textasset : {midiFile.bytes.Length}");
+        Debug.Log($"From file: {bytes.Length}");
+        MidiFileContainer song = MidiFileLoader.Load(bytes);
+        sequencer = new MidiTrackSequencer(song.tracks[track], song.division, bpm);
+    }
+
+    [ButtonGroup("Start Stop")]
     public void StartSong() {
         // Note: This should be done after a short delay, after loading the song. If done immediately after, there's apparently stuttering (see: smflite test branch link)
         sequencer.Start();
     }
 
-    [Button]
+    [ButtonGroup("Start Stop")]
     public void StopSong() {
         sequencer = null;
     }

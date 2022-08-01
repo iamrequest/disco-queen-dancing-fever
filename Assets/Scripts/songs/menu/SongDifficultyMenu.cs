@@ -8,6 +8,16 @@ using UnityEngine;
 /// TODO: Should refactor stuff from this and songDetailsMenu into some parent class
 /// </summary>
 public class SongDifficultyMenu : MonoBehaviour {
+    public static SongDifficultyMenu Instance { get; private set; }
+    private void Awake() {
+        if (Instance == null) {
+            Instance = this;
+        } else {
+            Debug.LogError($"Multiple {GetType()} components detected. This is probably a bug.");
+            Destroy(this);
+        }
+    }
+
     // Items to render on the UI
     public List<SongDifficultyMenuItem> songDifficultyMenuItems;
 
@@ -108,5 +118,10 @@ public class SongDifficultyMenu : MonoBehaviour {
     public SongDifficulty GetSelectedSongDifficulty() {
         //Debug.Log($"Selected song difficulty index: {highlightedItemIndex + currentDifficultyIndex}");
         return songMetadata.songDifficulties[highlightedItemIndex + currentDifficultyIndex];
+    }
+
+    [Button]
+    public void StartSelected() {
+        SongPlayer.Instance.StartSong(songMetadata, GetSelectedSongDifficulty());
     }
 }

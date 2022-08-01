@@ -6,6 +6,7 @@ using UnityEngine;
 public class SongMetadata {
     public string songName;
     public string artistName;
+    public float bpm;
 
     [Tooltip("Path to the folder containing this file, without a trailing slash")]
     public string fullDirectoryPath;
