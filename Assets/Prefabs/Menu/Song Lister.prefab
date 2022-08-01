@@ -111,6 +111,7 @@ MonoBehaviour:
     songName: 
     artistName: 
     bpm: 0
+    audioFilename: 
     fullDirectoryPath: 
     songDifficulties: []
   songMenuItemPrefab: {fileID: 6164652016752729394, guid: 399b4b06bdc57eb4683aaa841317a18f, type: 3}
@@ -119,6 +120,7 @@ MonoBehaviour:
   itemsToDisplay: 7
   highlightedItemIndex: 0
   currentDifficultyIndex: 0
+  highlightSelectedItem: 0
 --- !u!1 &3975977693996099552
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +134,7 @@ GameObject:
   - component: {fileID: 3975977693996099565}
   - component: {fileID: 3975977693996099566}
   - component: {fileID: 3975977693996099567}
+  - component: {fileID: 6919631151622252963}
   m_Layer: 5
   m_Name: Song Lister
   m_TagString: Untagged
@@ -244,6 +247,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   m_RaycastTriggerInteraction: 1
+--- !u!114 &6919631151622252963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975977693996099552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27b74e6fdc89ffc4eaaeed244dc4c476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputEventChannel: {fileID: 11400000, guid: fc773661a35fe034fa80d23bace38636, type: 2}
+  isSongSelected: 0
 --- !u!1 &3975977694099685301
 GameObject:
   m_ObjectHideFlags: 0

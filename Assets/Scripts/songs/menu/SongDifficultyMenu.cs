@@ -35,6 +35,7 @@ public class SongDifficultyMenu : MonoBehaviour {
     public int itemsToDisplay;
     public int highlightedItemIndex;
     public int currentDifficultyIndex;
+    private bool highlightSelectedItem;
 
     // Inspector usage, mainly
     [ButtonGroup("MenuGen")]
@@ -79,7 +80,7 @@ public class SongDifficultyMenu : MonoBehaviour {
         // Render each individual item
         for (int i = 0; i < Mathf.Min(itemsToDisplay, songMetadata.songDifficulties.Count); i++) {
             songDifficultyMenuItems[i].Render(songMetadata.songDifficulties[currentDifficultyIndex + i], 
-                i == highlightedItemIndex);
+                highlightSelectedItem && i == highlightedItemIndex);
         }
     }
     public void Render(SongMetadata songMetadata) {
@@ -123,5 +124,14 @@ public class SongDifficultyMenu : MonoBehaviour {
     [Button]
     public void StartSelected() {
         SongPlayer.Instance.StartSong(songMetadata, GetSelectedSongDifficulty());
+    }
+
+    /// <summary>
+    /// Enables/disables highlighting hovered menu items, effectively enabling/disabling the menu visually
+    /// </summary>
+    /// <param name="highlightMenuItem"></param>
+    public void SetHighlightSelectedMenuItem(bool highlightSelectedItem) {
+        this.highlightSelectedItem = highlightSelectedItem;
+        Render();
     }
 }
