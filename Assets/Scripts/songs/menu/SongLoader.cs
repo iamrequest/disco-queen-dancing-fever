@@ -4,10 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [ShowInInspector]
 public static class SongLoader {
     private static string songPath = Application.streamingAssetsPath + "/songs";
+
+    // --------------------------------------------------------------------------------
+    // Metadata file
+    // --------------------------------------------------------------------------------
 
     /// <summary>
     /// Load the metadata for all songs in the StreamingAssets dir.
@@ -85,6 +90,25 @@ public static class SongLoader {
             }
         }
 
+        // Validate that the audio file exists
+        if (!File.Exists(metadata.fullDirectoryPath + "/" + metadata.audioFilename)) {
+            failureReasons.Add($"No audio file exist for this song at [{metadata.fullDirectoryPath + "/" + metadata.audioFilename}].\n");
+        }
+
+        // Validate that the filetype for the audio file is valid
+        // Next steps: Validate this better, it's likely possible to rename the extension to get past validation, breaking something in the process
+        string fileExtension = Path.GetExtension(metadata.audioFilename);
+        switch (fileExtension.ToLower()) {
+            case ".wav":
+            case ".ogg":
+            case ".mp3":
+                break;
+            default:
+                failureReasons.Add($"Audio type [{fileExtension}] is not valid (Only wav, ogg, and mp3 are allowed).\n");
+                break;
+        }
+
+
         if (failureReasons.Count > 0) {
             string failureStr = string.Concat(failureReasons);
             Debug.LogWarning($"Invalid metadata file [{metadata.songName}] at [{metadata.fullDirectoryPath}]:\n{failureStr}");
@@ -101,5 +125,41 @@ public static class SongLoader {
 
         //return "{ \"songName\": \"Example Song\", \"artistName\": \"Some artist\" }";
         return File.ReadAllText(filePath);
+    }
+
+
+    // --------------------------------------------------------------------------------
+    // Audio Clip
+    // --------------------------------------------------------------------------------
+    public static IEnumerator LoadAudioClip(AudioSource targetAudioSource, SongMetadata metadata) {
+        yield return LoadAudioClip(targetAudioSource, 
+            metadata.fullDirectoryPath + "/" + metadata.audioFilename, 
+            metadata.GetAudioType());
+    }
+
+    public static IEnumerator LoadAudioClip(AudioSource targetAudioSource, string filePath, AudioType audioType) {
+        // Validate that we're using the right call
+        switch (audioType) {
+            case AudioType.WAV:
+            case AudioType.OGGVORBIS:
+            case AudioType.MPEG:
+                break;
+            default:
+                Debug.LogWarning($"Unable to get audio clip contents: Audio type is not valid (Only wav, ogg, and mp3 are allowed. Got [{audioType}])");
+                yield break;
+        }
+
+        UnityWebRequest request = UnityWebRequestMultimedia.GetAudioClip(filePath, AudioType.OGGVORBIS);
+
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.ConnectionError) {
+            Debug.LogWarning($"Unable to get audio clip contents: {request.result}");
+            yield break;
+        } else {
+            AudioClip clip = DownloadHandlerAudioClip.GetContent(request);
+            clip.name = filePath;
+            targetAudioSource.clip = clip;
+        }
     }
 }

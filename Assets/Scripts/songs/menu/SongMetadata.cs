@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,11 +8,26 @@ public class SongMetadata {
     public string songName;
     public string artistName;
     public float bpm;
+    public string audioFilename;
 
     [Tooltip("Path to the folder containing this file, without a trailing slash")]
     public string fullDirectoryPath;
 
     public List<SongDifficulty> songDifficulties;
+
+    public AudioType GetAudioType() {
+        string fileExtension = Path.GetExtension(audioFilename);
+        switch (fileExtension.ToLower()) {
+            case ".wav":
+                return AudioType.WAV;
+            case ".ogg":
+                return AudioType.OGGVORBIS;
+            case ".mp3":
+                return AudioType.MPEG;
+            default:
+                return AudioType.UNKNOWN;
+        }
+    }
 }
 
 [System.Serializable]

@@ -2,6 +2,7 @@
     "songName": "Raspberry Jam",
     "artistName":  "Artist",
     "bpm":  120,
+	"audioFilename": "raspberry_jam.ogg",
 	"songDifficulties": [
 		{
 			"difficultyName": "Easy",

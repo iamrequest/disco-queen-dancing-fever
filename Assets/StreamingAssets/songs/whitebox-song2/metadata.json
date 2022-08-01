@@ -1,4 +1,23 @@
 {
-    "songName": "Whitebox song 2",
-    "artistName":  "Artist"
+    "songName": "Raspberry Jam 2",
+    "artistName":  "Artist",
+    "bpm":  120,
+	"audioFilename": "raspberry_jam.ogg",
+	"songDifficulties": [
+		{
+			"difficultyName": "Easy",
+			"midiFilename": "midi_export.mid",
+			"playerInputMidiTrack": 1
+		},
+		{
+			"difficultyName": "Medium",
+			"midiFilename": "easy.mid",
+			"playerInputMidiTrack": 1
+		},
+		{
+			"difficultyName": "Hard",
+			"midiFilename": "easy.mid",
+			"playerInputMidiTrack": 1
+		}
+	]
 }

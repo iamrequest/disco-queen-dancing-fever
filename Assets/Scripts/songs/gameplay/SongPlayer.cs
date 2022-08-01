@@ -51,6 +51,13 @@ public class SongPlayer : MonoBehaviour {
         MidiFileContainer song = MidiFileLoader.Load(MidiFileToBytes(songMetadata, difficulty));
         sequencer = new MidiTrackSequencer(song.tracks[difficulty.playerInputMidiTrack], song.division, songMetadata.bpm);
 
+        // Fetch the audio clip from streaming assets
+        yield return StartCoroutine(SongLoader.LoadAudioClip(audioSource, songMetadata));
+        if (audioSource.clip == null) {
+            Debug.LogError("Failed to load audio.");
+            yield break;
+        }
+
         // Wait a second before starting audio, to prevent stuttering
         yield return new WaitForSeconds(preSongDelay);
 
@@ -73,6 +80,7 @@ public class SongPlayer : MonoBehaviour {
 
             if (events != null) {
                 foreach (MidiEvent e in events) {
+                    // Next steps: Sustained notes
                     if (IsNoteOn(e)) {
                         SpawnNote(e);
                     }
