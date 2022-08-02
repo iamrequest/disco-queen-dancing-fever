@@ -30,14 +30,12 @@ public class GameStateListener : MonoBehaviour {
         gameStateEventChannel.onGameStateChange -= OnGameStateChange;
     }
 
-    private void OnGameStateChange(GAME_STATE newGameState) {
+    private void OnGameStateChange(GAME_STATE oldGameState, GAME_STATE newGameState) {
         Debug.Log($"Game state change: {newGameState}");
 
         if ((newGameState & showOnState) > 0) {
-            Debug.Log("Show");
             animator.SetBool(isHiddenParamHash, false);
         } else if ((newGameState & hideOnState) > 0) {
-            Debug.Log("Hide");
             animator.SetBool(isHiddenParamHash, true);
         }
     }

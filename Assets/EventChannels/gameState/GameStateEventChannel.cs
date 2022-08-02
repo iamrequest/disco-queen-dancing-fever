@@ -13,7 +13,7 @@ public class GameStateEventChannel : ScriptableObject {
     public UnityAction<GAME_STATE> onRequestGameStateChange;
 
     [Tooltip("The game manager has just changed the game state")]
-    public UnityAction<GAME_STATE> onGameStateChange;
+    public UnityAction<GAME_STATE, GAME_STATE> onGameStateChange;
 
     [Button]
     public void SendOnRequestGameStateChange(GAME_STATE newGameState) {
@@ -22,9 +22,9 @@ public class GameStateEventChannel : ScriptableObject {
         }
     }
 
-    public void SendOnGameStateChange(GAME_STATE newGameState) {
+    public void SendOnGameStateChange(GAME_STATE oldGameState, GAME_STATE newGameState) {
         if (onGameStateChange != null) {
-            onGameStateChange.Invoke(newGameState);
+            onGameStateChange.Invoke(oldGameState, newGameState);
         }
     }
 }

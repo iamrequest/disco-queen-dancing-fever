@@ -1,10 +1,14 @@
 using Sirenix.OdinInspector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public enum NOTE_BOARD_LANES { LEFT=0, UP = 1, DOWN=2, RIGHT=3}
 public class NoteBoard : MonoBehaviour {
+    private Vector3 lrOffset; // Offset to the edge of the note board
+    private Vector3 centerOffset; // Offset from a note lane to the center of 2 note lates
+
     public List<Note> activeNotes;
 
     public Transform noteOrigin, noteDestination;
@@ -15,17 +19,18 @@ public class NoteBoard : MonoBehaviour {
     [Tooltip("The number of seconds it takes for a note to traverse the board")]
     public float noteSpeed;
 
-    private Vector3 lrOffset;
-    private Vector3 centerOffset;
     private void Start() {
         UpdateBoardSize();
     }
 
     private void Update() {
-        foreach (Note n in activeNotes) {
-            n.Move();
+        if (GameManager.Instance.gameState == GAME_STATE.GAME_ACTIVE) {
+            foreach (Note n in activeNotes) {
+                n.Move();
+            }
         }
     }
+
 
     public Vector3 GetNotePosition(float t, NOTE_BOARD_LANES laneNum) {
         float notePathWidth = boardWidth / numPaths;
@@ -56,7 +61,6 @@ public class NoteBoard : MonoBehaviour {
             Vector3 pathOffset = Vector3.right * i * notePathWidth;
             pathOffset.x += notePathWidth / 2; // Center the note paths
 
-            // TODO: This is broken
             Gizmos.DrawLine(noteOrigin.position - lrOffset + (Vector3.right * i * notePathWidth) + centerOffset,
                 noteDestination.position - lrOffset + (Vector3.right * i * notePathWidth) + centerOffset);
 
@@ -101,6 +105,9 @@ public class NoteBoard : MonoBehaviour {
 
         n.noteBoard = this;
         n.lane = lane;
+
+        // Move the note into position
+        n.transform.position = GetNotePosition(0f, lane);
 
         activeNotes.Add(n);
     }

@@ -4,17 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using Sirenix.OdinInspector;
+using System;
 
 public class SongPlayer : MonoBehaviour {
     public static SongPlayer Instance { get; private set; }
-    private void Awake() {
-        if (Instance == null) {
-            Instance = this;
-        } else {
-            Debug.LogError($"Multiple {GetType()} components detected. This is probably a bug.");
-            Destroy(this);
-        }
-    }
+    public GameStateEventChannel gameStateEventChannel;
 
     public NoteBoard noteBoard;
     public AudioSource audioSource;
@@ -26,16 +20,49 @@ public class SongPlayer : MonoBehaviour {
     // Delay before trying to play the midi track, to prevent stuttering
     private const float preSongDelay = 1f;
 
-    private void Update() {
-        AdvanceMidi();
+
+    private void Awake() {
+        if (Instance == null) {
+            Instance = this;
+        } else {
+            Debug.LogError($"Multiple {GetType()} components detected. This is probably a bug.");
+            Destroy(this);
+        }
     }
 
-    [Button]
+    private void OnEnable() {
+        gameStateEventChannel.onGameStateChange += OnGameStateChanged;
+    }
+    private void OnDisable() {
+        gameStateEventChannel.onGameStateChange -= OnGameStateChanged;
+    }
+
+    private void Update() {
+        if(GameManager.Instance.gameState == GAME_STATE.GAME_ACTIVE) {
+            AdvanceMidi();
+        }
+    }
+
+    private void OnGameStateChanged(GAME_STATE oldGameState, GAME_STATE newGameState) {
+        switch (newGameState) {
+            case GAME_STATE.GAME_PAUSED:
+                PauseSong();
+                break;
+            case GAME_STATE.GAME_ACTIVE:
+                if (oldGameState == GAME_STATE.GAME_PAUSED) {
+                    UnpauseSong();
+                }
+                break;
+        }
+    }
+
+
+    [ButtonGroup("Song Management")]
     public void StartSong(SongMetadata songMetadata, SongDifficulty difficulty) {
         startSongCoroutine = StartCoroutine(StartSongAfterDelay(songMetadata, difficulty));
     }
 
-    [Button]
+    [ButtonGroup("Song Management")]
     public void StopSong() {
         if (startSongCoroutine != null) {
             StopCoroutine(startSongCoroutine);
@@ -46,6 +73,17 @@ public class SongPlayer : MonoBehaviour {
         sequencer = null;
     }
 
+    [ButtonGroup("Song Management")]
+    public void PauseSong() {
+        audioSource.Pause();
+    }
+
+    [ButtonGroup("Song Management")]
+    private void UnpauseSong() {
+        audioSource.UnPause();
+    }
+
+
     private IEnumerator StartSongAfterDelay(SongMetadata songMetadata, SongDifficulty difficulty) {
         // Load midi song
         MidiFileContainer song = MidiFileLoader.Load(MidiFileToBytes(songMetadata, difficulty));
@@ -55,8 +93,13 @@ public class SongPlayer : MonoBehaviour {
         yield return StartCoroutine(SongLoader.LoadAudioClip(audioSource, songMetadata));
         if (audioSource.clip == null) {
             Debug.LogError("Failed to load audio.");
+
+            sequencer = null;
             yield break;
         }
+
+        // Let the game manager know that we're starting the game
+        gameStateEventChannel.SendOnRequestGameStateChange(GAME_STATE.GAME_ACTIVE);
 
         // Wait a second before starting audio, to prevent stuttering
         yield return new WaitForSeconds(preSongDelay);
