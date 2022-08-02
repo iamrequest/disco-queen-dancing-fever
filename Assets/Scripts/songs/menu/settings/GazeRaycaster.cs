@@ -15,15 +15,13 @@ public class GazeRaycaster : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance, layerMask)) {
             // Gaze menu colliders are on the child of the GazeMenuButton component. Otherwise, I'd check GetComponent() too, but that's not necessary for my use-case
+            GazableMenu menu;
             GazeMenuButton menuButton = hit.collider.GetComponentInParent<GazeMenuButton>();
 
             if (menuButton != null) {
                 menuButton.OnHover();
-
-                // Collider is centered, menu button is aligned otherwise
-                SettingsMenu.Instance.OnGaze(hit.collider.transform.position);
-            } else if (hit.collider.GetComponentInParent<SettingsMenu>()) {
-                SettingsMenu.Instance.OnGaze(hit.point);
+            } else if ((menu = hit.collider.GetComponentInParent<GazableMenu>()) != null) {
+                menu.OnGaze(hit.point);
             }
         }
     }

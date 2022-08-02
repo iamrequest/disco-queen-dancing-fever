@@ -8,9 +8,12 @@ using TMPro;
 
 // These are simple boolean buttons, which is fine for my use-case. Some of these inputs should be toggles, or one-shot checkboxes.
 public class GazeMenuButton : MonoBehaviour {
+    private GazableMenu gazableMenu;
+
     private bool isHoveredThisFrame;
     public bool isSelected;
     public bool canDeselect;
+
 
     [Tooltip("How long it takes to select this item, when hovered")]
     public float hoverSelectionDuration;
@@ -20,8 +23,16 @@ public class GazeMenuButton : MonoBehaviour {
     public Image icon;
     public Sprite selectedIcon, deselectedIcon;
     public TextMeshProUGUI label;
+    public Transform centerTransform; // Used for snapping the UI icon to the center of this button
 
     public UnityEvent<bool> onStateChanged;
+
+    private void Awake() {
+        gazableMenu = GetComponentInParent<GazableMenu>();
+        if (!gazableMenu) {
+            Debug.LogWarning("Could not find a gazable menu in the parent of this gameobject!");
+        }
+    }
 
     private void Update() {
         if (!isHoveredThisFrame) {
@@ -69,6 +80,7 @@ public class GazeMenuButton : MonoBehaviour {
 
     public void OnHover() {
         isHoveredThisFrame = true;
+        gazableMenu.OnGaze(centerTransform.position);
 
         // If we just changed the value of the button, disable hover
         if (hoverDisabled) return;
