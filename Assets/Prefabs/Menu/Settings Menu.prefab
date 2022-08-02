@@ -785,6 +785,8 @@ GameObject:
   - component: {fileID: 1244007924968471220}
   - component: {fileID: 1244007924968471217}
   - component: {fileID: 2107187878}
+  - component: {fileID: 7542221026833525070}
+  - component: {fileID: 7234022273471991301}
   m_Layer: 5
   m_Name: Settings Menu
   m_TagString: Untagged
@@ -873,7 +875,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244007924968471179}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -890,7 +892,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244007924968471179}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
   m_Name: 
@@ -914,10 +916,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6786e9f6a0d4a6545a82d834a443e161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsEventChannel: {fileID: 11400000, guid: 8c372322db911e743a4f755830d52be6, type: 2}
-  buttonInputMethodTrackers: {fileID: 9195188401137752193}
-  buttonInputMethodControllers: {fileID: 7965218395634262854}
-  buttonCallibrateStart: {fileID: 9195188399194994363}
   gazeIcon: {fileID: 1279507784}
   gazeIconDuration: 1
   gazeIconLerpSpeed: 0.1
@@ -945,6 +943,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  settingsEventChannel: {fileID: 11400000, guid: 8c372322db911e743a4f755830d52be6, type: 2}
+  buttonInputMethodTrackers: {fileID: 9195188401137752193}
+  buttonInputMethodControllers: {fileID: 7965218395634262854}
+  buttonCallibrateStart: {fileID: 9195188399194994363}
 --- !u!65 &2107187878
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -958,6 +960,40 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 2, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7542221026833525070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244007924968471179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d383f41319c8e4eb4577770a2ecab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
+  animator: {fileID: 7234022273471991301}
+--- !u!95 &7234022273471991301
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244007924968471179}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a4bc6e5792a9e0e48b58a1e11c52e964, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1244007925003936333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,6 +1157,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 521245083, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521245083, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 1230042126456698268, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_Name
       value: Input Type Controller Button
@@ -1217,9 +1261,21 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4d4912d985da709439ced7ca8c9cb565, type: 3}
+    - target: {fileID: 1230042126456698270, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1230042128086720696, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230042128086720699, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: canDeselect
@@ -1265,6 +1321,14 @@ PrefabInstance:
     - target: {fileID: 521245083, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_text
       value: Stand with both feet on the floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 521245083, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521245083, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1230042126456698268, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_Name
@@ -1362,9 +1426,21 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4d4912d985da709439ced7ca8c9cb565, type: 3}
+    - target: {fileID: 1230042126456698270, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1230042128086720696, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230042128086720699, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: canDeselect
@@ -1410,6 +1486,14 @@ PrefabInstance:
     - target: {fileID: 521245083, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_text
       value: Foot Trackers
+      objectReference: {fileID: 0}
+    - target: {fileID: 521245083, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 521245083, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1230042126456698268, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_Name
@@ -1503,9 +1587,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1230042126456698270, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1230042128086720696, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230042128086720699, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: canDeselect

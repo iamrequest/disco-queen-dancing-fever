@@ -720,6 +720,7 @@ GameObject:
   - component: {fileID: 2970678371727308515}
   - component: {fileID: 2970678371727308512}
   - component: {fileID: 2970678371727308513}
+  - component: {fileID: 5013380134981660922}
   m_Layer: 5
   m_Name: Quit Song Button
   m_TagString: Untagged
@@ -810,6 +811,20 @@ MonoBehaviour:
   onStateChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5013380134981660922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2970678371727308519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8585c5e95dadd334db6464e001ef2fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
+  targetGameState: 0
 --- !u!1 &2970678371740755219
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,6 +972,7 @@ GameObject:
   - component: {fileID: 2984653367691718302}
   - component: {fileID: 2984653367691718303}
   - component: {fileID: 6242595037690620255}
+  - component: {fileID: 1681442784858904235}
   m_Layer: 5
   m_Name: Pause Song Button
   m_TagString: Untagged
@@ -1046,7 +1062,33 @@ MonoBehaviour:
   centerTransform: {fileID: 2984653368239619000}
   onStateChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1681442784858904235}
+        m_TargetAssemblyTypeName: GameStateChanger, Assembly-CSharp
+        m_MethodName: RequestGameStateChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1681442784858904235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2984653367691718301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8585c5e95dadd334db6464e001ef2fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
+  targetGameState: 32
 --- !u!1 &2984653368239619001
 GameObject:
   m_ObjectHideFlags: 0
