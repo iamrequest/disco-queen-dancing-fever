@@ -267,8 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4979907446829295769}
   - component: {fileID: 4979907446829295771}
-  - component: {fileID: 4979907446829295770}
-  - component: {fileID: 4979907446829295764}
+  - component: {fileID: 3140394559387832028}
   m_Layer: 0
   m_Name: Right Hand
   m_TagString: Untagged
@@ -306,7 +305,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 2342111654946638003, guid: 3b76ec7efd7deae48ba70652e1805aad, type: 3}
+  m_ModelPrefab: {fileID: 0}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -457,85 +456,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 875253871413052681, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
---- !u!114 &4979907446829295770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4979907446829295768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4253f32900bcc4d499d675566142ded0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_InteractionLayers:
-    m_Bits: 4294967295
-  m_AttachTransform: {fileID: 0}
-  m_KeepSelectedTargetValid: 1
-  m_StartingSelectedInteractable: {fileID: 0}
-  m_HoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectActionTrigger: 0
-  m_HideControllerOnSelect: 0
-  m_AllowHoveredActivate: 0
-  m_PlayAudioClipOnSelectEntered: 0
-  m_AudioClipForOnSelectEntered: {fileID: 0}
-  m_PlayAudioClipOnSelectExited: 0
-  m_AudioClipForOnSelectExited: {fileID: 0}
-  m_PlayAudioClipOnSelectCanceled: 0
-  m_AudioClipForOnSelectCanceled: {fileID: 0}
-  m_PlayAudioClipOnHoverEntered: 0
-  m_AudioClipForOnHoverEntered: {fileID: 0}
-  m_PlayAudioClipOnHoverExited: 0
-  m_AudioClipForOnHoverExited: {fileID: 0}
-  m_PlayAudioClipOnHoverCanceled: 0
-  m_AudioClipForOnHoverCanceled: {fileID: 0}
-  m_PlayHapticsOnSelectEntered: 0
-  m_HapticSelectEnterIntensity: 0
-  m_HapticSelectEnterDuration: 0
-  m_PlayHapticsOnSelectExited: 0
-  m_HapticSelectExitIntensity: 0
-  m_HapticSelectExitDuration: 0
-  m_PlayHapticsOnSelectCanceled: 0
-  m_HapticSelectCancelIntensity: 0
-  m_HapticSelectCancelDuration: 0
-  m_PlayHapticsOnHoverEntered: 0
-  m_HapticHoverEnterIntensity: 0
-  m_HapticHoverEnterDuration: 0
-  m_PlayHapticsOnHoverExited: 0
-  m_HapticHoverExitIntensity: 0
-  m_HapticHoverExitDuration: 0
-  m_PlayHapticsOnHoverCanceled: 0
-  m_HapticHoverCancelIntensity: 0
-  m_HapticHoverCancelDuration: 0
---- !u!135 &4979907446829295764
+--- !u!135 &3140394559387832028
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -543,7 +464,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4979907446829295768}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.1
@@ -560,6 +481,7 @@ GameObject:
   - component: {fileID: 4979907447115867945}
   - component: {fileID: 4979907447115867944}
   - component: {fileID: 7381269305969587208}
+  - component: {fileID: 5836535540516546094}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -580,6 +502,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4979907447332158143}
+  - {fileID: 7367339617833017949}
+  - {fileID: 781072549149283314}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -626,6 +550,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5836535540516546094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979907447115867951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20052fe65469094ca05a57d1a1ff266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingsEventChannel: {fileID: 11400000, guid: 8c372322db911e743a4f755830d52be6, type: 2}
+  inputType: 0
+  footLeft: {fileID: 7367339617833017949}
+  footRight: {fileID: 781072549149283314}
+  controllerLeft: {fileID: 4979907448074282629}
+  controllerRight: {fileID: 4979907446829295769}
+  footTrackerLeft: {fileID: 4979907447374601292}
+  footTrackerRight: {fileID: 4979907447354251422}
 --- !u!1 &4979907447332158142
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,8 +635,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7321996835961214905}
+  m_Children: []
   m_Father: {fileID: 4979907447332158143}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -795,8 +738,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7321996836783522090}
+  m_Children: []
   m_Father: {fileID: 4979907447332158143}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -880,8 +822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4979907448074282629}
   - component: {fileID: 4979907448074282631}
-  - component: {fileID: 4979907448074282630}
-  - component: {fileID: 4979907448074282624}
+  - component: {fileID: 3259098320215308233}
   m_Layer: 0
   m_Name: Left Hand
   m_TagString: Untagged
@@ -919,7 +860,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 2342111654946638003, guid: 3b76ec7efd7deae48ba70652e1805aad, type: 3}
+  m_ModelPrefab: {fileID: 0}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -1070,85 +1011,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 7779212132400271959, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
---- !u!114 &4979907448074282630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4979907448074282628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4253f32900bcc4d499d675566142ded0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_InteractionLayers:
-    m_Bits: 4294967295
-  m_AttachTransform: {fileID: 0}
-  m_KeepSelectedTargetValid: 1
-  m_StartingSelectedInteractable: {fileID: 0}
-  m_HoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectActionTrigger: 0
-  m_HideControllerOnSelect: 0
-  m_AllowHoveredActivate: 0
-  m_PlayAudioClipOnSelectEntered: 0
-  m_AudioClipForOnSelectEntered: {fileID: 0}
-  m_PlayAudioClipOnSelectExited: 0
-  m_AudioClipForOnSelectExited: {fileID: 0}
-  m_PlayAudioClipOnSelectCanceled: 0
-  m_AudioClipForOnSelectCanceled: {fileID: 0}
-  m_PlayAudioClipOnHoverEntered: 0
-  m_AudioClipForOnHoverEntered: {fileID: 0}
-  m_PlayAudioClipOnHoverExited: 0
-  m_AudioClipForOnHoverExited: {fileID: 0}
-  m_PlayAudioClipOnHoverCanceled: 0
-  m_AudioClipForOnHoverCanceled: {fileID: 0}
-  m_PlayHapticsOnSelectEntered: 0
-  m_HapticSelectEnterIntensity: 0
-  m_HapticSelectEnterDuration: 0
-  m_PlayHapticsOnSelectExited: 0
-  m_HapticSelectExitIntensity: 0
-  m_HapticSelectExitDuration: 0
-  m_PlayHapticsOnSelectCanceled: 0
-  m_HapticSelectCancelIntensity: 0
-  m_HapticSelectCancelDuration: 0
-  m_PlayHapticsOnHoverEntered: 0
-  m_HapticHoverEnterIntensity: 0
-  m_HapticHoverEnterDuration: 0
-  m_PlayHapticsOnHoverExited: 0
-  m_HapticHoverExitIntensity: 0
-  m_HapticHoverExitDuration: 0
-  m_PlayHapticsOnHoverCanceled: 0
-  m_HapticHoverCancelIntensity: 0
-  m_HapticHoverCancelDuration: 0
---- !u!135 &4979907448074282624
+--- !u!135 &3259098320215308233
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1156,25 +1019,25 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4979907448074282628}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &4979907446171836170
+--- !u!1001 &3050686805364939585
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4979907447354251422}
+    m_TransformParent: {fileID: 4979907447115867946}
     m_Modifications:
     - target: {fileID: 2342111654946638003, guid: 3b76ec7efd7deae48ba70652e1805aad, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2342111654946638003, guid: 3b76ec7efd7deae48ba70652e1805aad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2342111654946638003, guid: 3b76ec7efd7deae48ba70652e1805aad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1214,29 +1077,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6499455890417684157, guid: 3b76ec7efd7deae48ba70652e1805aad, type: 3}
       propertyPath: m_Name
-      value: hand
+      value: right foot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b76ec7efd7deae48ba70652e1805aad, type: 3}
---- !u!4 &7321996835961214905 stripped
+--- !u!4 &781072549149283314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2342111654946638003, guid: 3b76ec7efd7deae48ba70652e1805aad, type: 3}
-  m_PrefabInstance: {fileID: 4979907446171836170}
+  m_PrefabInstance: {fileID: 3050686805364939585}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4979907448033872281
+--- !u!1001 &5097747661092350702
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4979907447374601292}
+    m_TransformParent: {fileID: 4979907447115867946}
     m_Modifications:
     - target: {fileID: 2342111654946638003, guid: 3b76ec7efd7deae48ba70652e1805aad, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2342111654946638003, guid: 3b76ec7efd7deae48ba70652e1805aad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2342111654946638003, guid: 3b76ec7efd7deae48ba70652e1805aad, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1276,12 +1139,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6499455890417684157, guid: 3b76ec7efd7deae48ba70652e1805aad, type: 3}
       propertyPath: m_Name
-      value: hand
+      value: left foot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b76ec7efd7deae48ba70652e1805aad, type: 3}
---- !u!4 &7321996836783522090 stripped
+--- !u!4 &7367339617833017949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2342111654946638003, guid: 3b76ec7efd7deae48ba70652e1805aad, type: 3}
-  m_PrefabInstance: {fileID: 4979907448033872281}
+  m_PrefabInstance: {fileID: 5097747661092350702}
   m_PrefabAsset: {fileID: 0}

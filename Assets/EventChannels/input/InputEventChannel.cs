@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// Invoke RaiseEvent() whenever the game state is changed. 
 /// https://www.youtube.com/watch?v=WLDgtRNK2VE
 /// </summary>
 [CreateAssetMenu(menuName = "Events/Input Event Channel")]

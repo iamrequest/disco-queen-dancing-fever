@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class SettingsMenu : MonoBehaviour {
     public static SettingsMenu Instance { get; private set; }
 
+    public SettingsEventChannel settingsEventChannel;
+
     [Tooltip("Is the game played with foot trackers, or controllers?")]
     public GazeMenuButton buttonInputMethodTrackers, buttonInputMethodControllers;
 
@@ -82,10 +84,12 @@ public class SettingsMenu : MonoBehaviour {
 
     private void SetInputMethodTrackers(bool state) {
         buttonInputMethodControllers.SetSelectedSilent(false, true);
+        settingsEventChannel.SendInputTypeChanged(INPUT_TYPES.FEET_TRACKER, 0);
     }
 
     private void SetInputMethodControllers(bool state) {
         buttonInputMethodTrackers.SetSelectedSilent(false, true);
+        settingsEventChannel.SendInputTypeChanged(INPUT_TYPES.CONTROLLER, 0);
     }
 
 }

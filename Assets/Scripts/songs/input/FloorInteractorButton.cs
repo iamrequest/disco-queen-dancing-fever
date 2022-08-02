@@ -6,6 +6,7 @@ using UnityEngine;
 public class FloorInteractorButton : MonoBehaviour {
     private FloorInteractor floorInteractor;
     public INPUT_DIRS inputDir;
+    private float timeSinceLastInput;
 
     private void Awake() {
         floorInteractor = GetComponentInParent<FloorInteractor>();
@@ -13,7 +14,19 @@ public class FloorInteractorButton : MonoBehaviour {
             Debug.LogWarning("This floor interactor button is missing a floor interactor in its parent!");
         }
     }
+
+    private void Update() {
+        timeSinceLastInput = Mathf.Min(floorInteractor.inputCooldown, timeSinceLastInput + Time.deltaTime);
+    }
+
     private void OnTriggerEnter(Collider other) {
-        floorInteractor.SendInput(inputDir);
+        // Cooldown
+        if (timeSinceLastInput < floorInteractor.inputCooldown)  return;
+
+        // Check that the layermasks match
+        if ((floorInteractor.buttonLayerMask.value & (1 << other.gameObject.layer)) > 0) {
+            floorInteractor.SendInput(inputDir);
+            timeSinceLastInput = 0f;
+        }
     }
 }

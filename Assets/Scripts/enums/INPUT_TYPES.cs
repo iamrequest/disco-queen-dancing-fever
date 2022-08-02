@@ -1,0 +1,3 @@
+public enum INPUT_TYPES {
+    CONTROLLER, FEET_TRACKER
+}

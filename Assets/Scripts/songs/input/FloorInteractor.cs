@@ -11,11 +11,14 @@ public class FloorInteractor : MonoBehaviour {
 
     public InputEventChannel inputEventChannel;
 
+    // These settings filter out multiple presses on the floor. Might be necessary to remove/reduce the cooldown during gameplay, but it's necessary for menu input
+    public LayerMask buttonLayerMask;
+    public float inputCooldown;
+
     [Button]
     public void SendInput(INPUT_DIRS input) {
         inputEventChannel.SendPlayerInput(input, playerIndex);
     }
-
 
 
     // --------------------------------------------------------------------------------
