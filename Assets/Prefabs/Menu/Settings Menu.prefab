@@ -1213,6 +1213,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1230042126456698270, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d4912d985da709439ced7ca8c9cb565, type: 3}
     - target: {fileID: 1230042128086720696, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -1260,7 +1264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 521245083, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_text
-      value: Start
+      value: Stand with both feet on the floor
       objectReference: {fileID: 0}
     - target: {fileID: 1230042126456698268, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_Name
@@ -1354,6 +1358,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1230042126456698270, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d4912d985da709439ced7ca8c9cb565, type: 3}
     - target: {fileID: 1230042128086720696, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -1362,6 +1370,10 @@ PrefabInstance:
       propertyPath: canDeselect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: deselectedIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d4912d985da709439ced7ca8c9cb565, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
 --- !u!224 &23193448787292536 stripped

@@ -10,9 +10,23 @@ using UnityEngine.Events;
 public class SettingsEventChannel : ScriptableObject {
     public UnityAction<INPUT_TYPES, int> onInputTypeChanged;
 
+    public UnityAction startCalibrateFloorHeight; // Request a calibration
+    public UnityAction<float> onCalibrateFloorHeight; // On calibration complete
+
     public void SendInputTypeChanged(INPUT_TYPES inputType, int playerIndex) {
         if (onInputTypeChanged != null) {
             onInputTypeChanged.Invoke(inputType, playerIndex);
+        }
+    }
+
+    public void SendStartCalibrateFloorHeight() {
+        if (startCalibrateFloorHeight != null) {
+            startCalibrateFloorHeight.Invoke();
+        }
+    }
+    public void SendOnCalibrateFloorHeight(float newFloorHeight) {
+        if (onCalibrateFloorHeight != null) {
+            onCalibrateFloorHeight.Invoke(newFloorHeight);
         }
     }
 }

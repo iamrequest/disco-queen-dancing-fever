@@ -80,6 +80,8 @@ public class SettingsMenu : MonoBehaviour {
     // Gaze Button Functionality
     // --------------------------------------------------------------------------------
     private void StartCallibration(bool state) {
+        buttonCallibrateStart.SetSelectedSilent(false, true);
+        settingsEventChannel.SendStartCalibrateFloorHeight();
     }
 
     private void SetInputMethodTrackers(bool state) {

@@ -2145,6 +2145,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 23193448787292539, guid: 92867bc808e93074cb441096df64bf34, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23193448787292539, guid: 92867bc808e93074cb441096df64bf34, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d4912d985da709439ced7ca8c9cb565, type: 3}
+    - target: {fileID: 1244007923419649406, guid: 92867bc808e93074cb441096df64bf34, type: 3}
+      propertyPath: m_text
+      value: Stand with both feet on the floor
+      objectReference: {fileID: 0}
     - target: {fileID: 1244007924968471179, guid: 92867bc808e93074cb441096df64bf34, type: 3}
       propertyPath: m_Name
       value: Settings Menu
@@ -2239,6 +2251,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1244007925395334278, guid: 92867bc808e93074cb441096df64bf34, type: 3}
       propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d4912d985da709439ced7ca8c9cb565, type: 3}
+    - target: {fileID: 9195188399194994363, guid: 92867bc808e93074cb441096df64bf34, type: 3}
+      propertyPath: deselectedIcon
       value: 
       objectReference: {fileID: 21300000, guid: 4d4912d985da709439ced7ca8c9cb565, type: 3}
     m_RemovedComponents: []
