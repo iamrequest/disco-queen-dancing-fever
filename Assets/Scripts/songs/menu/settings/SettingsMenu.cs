@@ -32,7 +32,9 @@ public class SettingsMenu : GazableMenu {
         buttonCallibrateStart.onStateChanged.AddListener(StartCallibration);
     }
 
-    private void OnDisable() {
+    protected override void OnDisable() {
+        base.OnDisable();
+
         buttonInputMethodControllers.onStateChanged.RemoveListener(SetInputMethodControllers);
         buttonInputMethodTrackers.onStateChanged.RemoveListener(SetInputMethodTrackers);
         buttonCallibrateStart.onStateChanged.RemoveListener(StartCallibration);

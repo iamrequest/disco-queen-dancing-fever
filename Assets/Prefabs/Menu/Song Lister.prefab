@@ -120,7 +120,6 @@ MonoBehaviour:
   itemsToDisplay: 7
   highlightedItemIndex: 0
   currentDifficultyIndex: 0
-  highlightSelectedItem: 0
 --- !u!1 &3975977693996099552
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,9 +131,9 @@ GameObject:
   - component: {fileID: 3975977693996099563}
   - component: {fileID: 3975977693996099564}
   - component: {fileID: 3975977693996099565}
-  - component: {fileID: 3975977693996099566}
-  - component: {fileID: 3975977693996099567}
   - component: {fileID: 6919631151622252963}
+  - component: {fileID: 7656492720722495907}
+  - component: {fileID: 6726009198319931194}
   m_Layer: 5
   m_Name: Song Lister
   m_TagString: Untagged
@@ -211,42 +210,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 1
---- !u!114 &3975977693996099566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3975977693996099552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 55
---- !u!114 &3975977693996099567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3975977693996099552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 0
-  m_CheckFor2DOcclusion: 0
-  m_CheckFor3DOcclusion: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 55
-  m_RaycastTriggerInteraction: 1
 --- !u!114 &6919631151622252963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +224,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputEventChannel: {fileID: 11400000, guid: fc773661a35fe034fa80d23bace38636, type: 2}
   isSongSelected: 0
+--- !u!95 &7656492720722495907
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975977693996099552}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 311139466b68b8f438fcfe5c9ef1fffb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6726009198319931194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3975977693996099552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d383f41319c8e4eb4577770a2ecab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
+  animator: {fileID: 7656492720722495907}
+  showOnState: 4
+  hideOnState: 56
 --- !u!1 &3975977694099685301
 GameObject:
   m_ObjectHideFlags: 0

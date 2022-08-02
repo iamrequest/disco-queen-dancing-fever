@@ -27,4 +27,26 @@ public class GameStateEventChannel : ScriptableObject {
             onGameStateChange.Invoke(oldGameState, newGameState);
         }
     }
+
+    // --------------------------------------------------------------------------------
+    // Editor
+    // --------------------------------------------------------------------------------
+    [Title("Set Game State")]
+    [Button("Title")]
+    private void RequestGameStateTitle() { SendOnRequestGameStateChange(GAME_STATE.TITLE); }
+
+    [Button("Main Menu")]
+    private void RequestGameStateMenu() { SendOnRequestGameStateChange(GAME_STATE.MAIN_MENU); }
+
+    [Button("Game Active")]
+    [ButtonGroup("StateChange Game")]
+    private void RequestGameStateGameActive() { SendOnRequestGameStateChange(GAME_STATE.GAME_ACTIVE); }
+
+    [Button("Game Paused")]
+    [ButtonGroup("StateChange Game")]
+    private void RequestGameStatePaused() { SendOnRequestGameStateChange(GAME_STATE.GAME_PAUSED); }
+
+    [Button("Game Over")]
+    [ButtonGroup("StateChange Game")]
+    private void RequestGameStateGameOver() { SendOnRequestGameStateChange(GAME_STATE.GAME_OVER); }
 }

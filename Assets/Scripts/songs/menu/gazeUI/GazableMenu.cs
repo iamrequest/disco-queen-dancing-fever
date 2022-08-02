@@ -18,6 +18,13 @@ public class GazableMenu : MonoBehaviour {
         gazeIconElapsedDuration = gazeIconDuration;
     }
 
+    protected virtual void OnDisable() {
+        // Hide pointer on disable. This gets around an animator bug that freezes the gaze icon's alpha (since it's being set in an animator state)
+        Color c = gazeIcon.color;
+        c.a = 0f;
+        gazeIcon.color = c;
+    }
+
     // --------------------------------------------------------------------------------
     // Gaze UI Icon
     // --------------------------------------------------------------------------------

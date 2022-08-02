@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ac_songList
+  m_Controller: {fileID: 9100000, guid: a4bc6e5792a9e0e48b58a1e11c52e964, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4f1c0896899f1ea49a90501fb8452dbc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0002db8a6aad60348a3f42c636137733, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: dec8e3106613d7e46b32a835d6777ea5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ef22b60c19a78624b8ff42409a404727, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 490ceeca4a6aea645b9b479a5326cb7f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 29149876759441a41b77817fc38b8ee1, type: 2}
