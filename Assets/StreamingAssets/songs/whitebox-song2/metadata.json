@@ -1,8 +1,8 @@
 {
-    "songName": "Song 2",
+    "songName": "Funky Startup",
     "artistName":  "Artist",
     "bpm":  120,
-	"audioFilename": "raspberry_jam.ogg",
+	"audioFilename": "FunkyStartup.ogg",
 	"gamemode": "classic",
 	"version": "1.0",
 	"songDifficulties": [

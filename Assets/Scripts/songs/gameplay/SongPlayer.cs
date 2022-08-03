@@ -14,11 +14,13 @@ public class SongPlayer : MonoBehaviour {
     public AudioSource audioSource;
 
     private Coroutine startSongCoroutine;
+    private Coroutine stopSongAfterAudioCompletionCoroutine;
 
     private MidiTrackSequencer sequencer;
 
     // Delay before trying to play the midi track, to prevent stuttering
     private const float preSongDelay = 1f;
+    public float elapsedTime;
 
 
     private void Awake() {
@@ -53,6 +55,9 @@ public class SongPlayer : MonoBehaviour {
                     UnpauseSong();
                 }
                 break;
+            case GAME_STATE.GAME_OVER:
+                StopSong();
+                break;
         }
     }
 
@@ -69,8 +74,15 @@ public class SongPlayer : MonoBehaviour {
             startSongCoroutine = null;
         }
 
+        if (stopSongAfterAudioCompletionCoroutine != null) {
+            StopCoroutine(stopSongAfterAudioCompletionCoroutine);
+            stopSongAfterAudioCompletionCoroutine = null;
+        }
+
         audioSource.Stop();
         sequencer = null;
+
+        // TODO: Despawn notes after a delay
     }
 
     [ButtonGroup("Song Management")]
@@ -82,7 +94,6 @@ public class SongPlayer : MonoBehaviour {
     private void UnpauseSong() {
         audioSource.UnPause();
     }
-
 
     private IEnumerator StartSongAfterDelay(SongMetadata songMetadata, SongDifficulty difficulty) {
         // Load midi song
@@ -104,10 +115,32 @@ public class SongPlayer : MonoBehaviour {
         // Wait a second before starting audio, to prevent stuttering
         yield return new WaitForSeconds(preSongDelay);
 
+        // Quit the game after the song is complete
+        stopSongAfterAudioCompletionCoroutine = StartCoroutine(StopGameAfterAudioCompletion());
+
+        // TODO: If the player pauses before the audio has started playing, then audio&midi will probably get out of sync
         audioSource.PlayDelayed(noteBoard.noteSpeed);
         sequencer.Start();
     }
 
+    private IEnumerator StopGameAfterAudioCompletion() {
+        elapsedTime = 0f;
+
+        while (elapsedTime < audioSource.clip.length) {
+            if (GameManager.Instance.gameState == GAME_STATE.GAME_ACTIVE) {
+                elapsedTime += Time.deltaTime;
+            }
+            yield return null;
+        }
+
+        gameStateEventChannel.SendOnRequestGameStateChange(GAME_STATE.GAME_OVER);
+        //StopSong(); // This gets called as a result of the game state change
+    }
+
+
+    // --------------------------------------------------------------------------------
+    // MIDI file reading
+    // --------------------------------------------------------------------------------
     private byte[] MidiFileToBytes(SongMetadata songMetadata, SongDifficulty difficulty) {
         if (!File.Exists(songMetadata.fullDirectoryPath + "/" + difficulty.midiFilename)) {
             Debug.LogError($"MIDI file does not exist: {songMetadata.fullDirectoryPath + "/" + difficulty.midiFilename}");

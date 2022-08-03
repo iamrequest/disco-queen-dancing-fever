@@ -115,12 +115,12 @@ public static class SongLoader {
         // Next steps: Validate this better, it's likely possible to rename the extension to get past validation, breaking something in the process
         string fileExtension = Path.GetExtension(metadata.audioFilename);
         switch (fileExtension.ToLower()) {
-            case ".wav":
+            //case ".wav":
+            //case ".mp3":
             case ".ogg":
-            case ".mp3":
                 break;
             default:
-                failureReasons.Add($"Audio type [{fileExtension}] is not valid (Only wav, ogg, and mp3 are allowed).\n");
+                failureReasons.Add($"Audio type [{fileExtension}] is not valid (Only ogg is currently allowed).\n");
                 break;
         }
 
@@ -155,12 +155,12 @@ public static class SongLoader {
     public static IEnumerator LoadAudioClip(AudioSource targetAudioSource, string filePath, AudioType audioType) {
         // Validate that we're using the right call
         switch (audioType) {
-            case AudioType.WAV:
+            //case AudioType.WAV:
+            //case AudioType.MPEG:
             case AudioType.OGGVORBIS:
-            case AudioType.MPEG:
                 break;
             default:
-                Debug.LogWarning($"Unable to get audio clip contents: Audio type is not valid (Only wav, ogg, and mp3 are allowed. Got [{audioType}])");
+                Debug.LogWarning($"Unable to get audio clip contents: Audio type is not valid (Only ogg is currently allowed. Got [{audioType}])");
                 yield break;
         }
 
@@ -172,6 +172,9 @@ public static class SongLoader {
             Debug.LogWarning($"Unable to get audio clip contents: {request.result}");
             yield break;
         } else {
+            // Bug: For some reason, I can get to this point for .wav and .mp3 files, but the audio file fails to load. Stack trace is below.
+            //      Error: Cannot create FMOD::Sound instance for clip "" (FMOD error: Unsupported file or audio format. )
+            //      UnityEngine.Networking.DownloadHandlerAudioClip:GetContent (UnityEngine.Networking.UnityWebRequest)
             AudioClip clip = DownloadHandlerAudioClip.GetContent(request);
             clip.name = filePath;
             targetAudioSource.clip = clip;
