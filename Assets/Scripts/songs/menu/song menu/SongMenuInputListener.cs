@@ -18,6 +18,11 @@ public class SongMenuInputListener : MonoBehaviour {
         // Only process menu inputs when we're at the main menu
         if (GameManager.Instance.gameState != GAME_STATE.MAIN_MENU) return;
 
+        // Don't process floor input for the song list menu if there's no songs to choose from
+        if (SongDetailsMenu.Instance.songsMetadata.Count == 0) {
+            return;
+        }
+
         if (!isSongSelected) {
             // Song menu is active
             switch (inputDir) {

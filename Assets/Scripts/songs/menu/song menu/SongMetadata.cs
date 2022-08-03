@@ -10,6 +10,10 @@ public class SongMetadata {
     public float bpm;
     public string audioFilename;
 
+    // Currently unused, mostly for future proofing.
+    public string gamemode; // Currently always "classic"
+    public string version; // Currently always "1.0"
+
     [Tooltip("Path to the folder containing this file, without a trailing slash")]
     public string fullDirectoryPath;
 

@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// This is a menu that lists all of the songs.
@@ -14,6 +15,8 @@ public class SongDetailsMenu : MonoBehaviour {
 
     // List of songs
     public List<SongMetadata> songsMetadata;
+
+    public TextMeshProUGUI noSongsFoundText;
 
     public GameObject songMenuItemPrefab;
 
@@ -34,6 +37,8 @@ public class SongDetailsMenu : MonoBehaviour {
             Debug.LogError($"Multiple {GetType()} components detected. This is probably a bug.");
             Destroy(this);
         }
+
+        noSongsFoundText.gameObject.SetActive(false);
     }
     private void Start() {
         Render();
@@ -87,6 +92,12 @@ public class SongDetailsMenu : MonoBehaviour {
     public void Render() {
         if (songMenuItems.Count == 0) {
             CreateSongMenuItems();
+        }
+
+        // No songs found, don't bother rendering
+        if (songsMetadata.Count == 0) {
+            noSongsFoundText.gameObject.SetActive(true);
+            return;
         }
 
         // Render each individual item

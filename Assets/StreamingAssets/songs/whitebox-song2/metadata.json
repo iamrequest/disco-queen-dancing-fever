@@ -3,6 +3,8 @@
     "artistName":  "Artist",
     "bpm":  120,
 	"audioFilename": "raspberry_jam.ogg",
+	"gamemode": "classic",
+	"version": "1.0",
 	"songDifficulties": [
 		{
 			"difficultyName": "Easy",

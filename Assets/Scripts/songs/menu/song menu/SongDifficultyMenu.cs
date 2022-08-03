@@ -123,6 +123,9 @@ public class SongDifficultyMenu : MonoBehaviour {
 
     [Button]
     public void StartSelected() {
+        if (SongDetailsMenu.Instance.songsMetadata.Count == 0) return;
+        if (songMetadata.songDifficulties.Count == 0) return;
+
         SongPlayer.Instance.StartSong(songMetadata, GetSelectedSongDifficulty());
     }
 

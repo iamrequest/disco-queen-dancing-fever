@@ -95,6 +95,22 @@ public static class SongLoader {
             failureReasons.Add($"No audio file exist for this song at [{metadata.fullDirectoryPath + "/" + metadata.audioFilename}].\n");
         }
 
+        // Validate that the version exists
+        // Currently not used, but it doesn't hurt to validate for this early
+        if (metadata.version == null) {
+            failureReasons.Add($"No version exists for this song.\n");
+        } else if (metadata.version != "1.0") {
+            failureReasons.Add($"Invalid version supplied for this song ({metadata.version}). Only a version of \"1.0\" is currently allowed. \n");
+        }
+
+        // Validate that the gamemode exists
+        // Currently not used, but it doesn't hurt to validate for this early
+        if (metadata.gamemode == null) {
+            failureReasons.Add($"No gamemode exists for this song.\n");
+        } else if (metadata.gamemode != "classic") {
+            failureReasons.Add($"Invalid gamemode supplied for this song ({metadata.gamemode}). Only a gamemode of \"classic\" is currently allowed. \n");
+        }
+
         // Validate that the filetype for the audio file is valid
         // Next steps: Validate this better, it's likely possible to rename the extension to get past validation, breaking something in the process
         string fileExtension = Path.GetExtension(metadata.audioFilename);
@@ -107,7 +123,6 @@ public static class SongLoader {
                 failureReasons.Add($"Audio type [{fileExtension}] is not valid (Only wav, ogg, and mp3 are allowed).\n");
                 break;
         }
-
 
         if (failureReasons.Count > 0) {
             string failureStr = string.Concat(failureReasons);
