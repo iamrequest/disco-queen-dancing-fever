@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/whitebox/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/Scenes/menu.unity
+    guid: 29510e693666de948acd466cdd3de962
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d6ac8be933facc744ae20e699da97ddc, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: ba7090040fcff974a9c2b6dcd608a1fe, type: 2}
