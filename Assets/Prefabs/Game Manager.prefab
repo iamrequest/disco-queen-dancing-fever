@@ -62,6 +62,8 @@ MonoBehaviour:
   gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
   noteBoard: {fileID: 0}
   audioSource: {fileID: 1581244719508279053}
+  difficultySettings: {fileID: 11400000, guid: 709c967e8b472d44eaa8dcd1f5f15ae7, type: 2}
+  elapsedTime: 0
 --- !u!82 &1581244719508279053
 AudioSource:
   m_ObjectHideFlags: 0

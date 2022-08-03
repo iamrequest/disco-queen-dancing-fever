@@ -12,6 +12,7 @@ public class SongPlayer : MonoBehaviour {
 
     public NoteBoard noteBoard;
     public AudioSource audioSource;
+    public DifficultySettings difficultySettings; // For now, assume a single difficulty setting
 
     private Coroutine startSongCoroutine;
     private Coroutine stopSongAfterAudioCompletionCoroutine;
@@ -20,7 +21,7 @@ public class SongPlayer : MonoBehaviour {
 
     // Delay before trying to play the midi track, to prevent stuttering
     private const float preSongDelay = 1f;
-    public float elapsedTime;
+    public float elapsedMidiTime; // To get elapsed song time, subtract preSongDelay
 
 
     private void Awake() {
@@ -118,17 +119,17 @@ public class SongPlayer : MonoBehaviour {
         // Quit the game after the song is complete
         stopSongAfterAudioCompletionCoroutine = StartCoroutine(StopGameAfterAudioCompletion());
 
-        // TODO: If the player pauses before the audio has started playing, then audio&midi will probably get out of sync
-        audioSource.PlayDelayed(noteBoard.noteSpeed);
+        // TODO: If the player pauses before the audio has started playing, then audio&midi will probably get out of sync. Likely just restart the song on unpause in this case
+        audioSource.PlayDelayed(difficultySettings.noteLifetime);
         sequencer.Start();
     }
 
     private IEnumerator StopGameAfterAudioCompletion() {
-        elapsedTime = 0f;
+        elapsedMidiTime = 0f;
 
-        while (elapsedTime < audioSource.clip.length) {
+        while (elapsedMidiTime < audioSource.clip.length) {
             if (GameManager.Instance.gameState == GAME_STATE.GAME_ACTIVE) {
-                elapsedTime += Time.deltaTime;
+                elapsedMidiTime += Time.deltaTime;
             }
             yield return null;
         }

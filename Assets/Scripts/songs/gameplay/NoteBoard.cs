@@ -9,15 +9,41 @@ public class NoteBoard : MonoBehaviour {
     private Vector3 lrOffset; // Offset to the edge of the note board
     private Vector3 centerOffset; // Offset from a note lane to the center of 2 note lates
 
-    public List<Note> activeNotes;
+    public GameStateEventChannel gameStateEventChannel;
+    public InputEventChannel inputEventChannel;
+
+    [HideInInspector]
+    public List<NoteLane> noteLanes;
 
     public Transform noteOrigin, noteDestination;
     public GameObject notePrefab;
 
     public float boardWidth;
     private const int numPaths = 4;
-    [Tooltip("The number of seconds it takes for a note to traverse the board")]
-    public float noteSpeed;
+    [Range(0, 64)]
+    public int maxNumNotesPerLane;
+
+    private void OnEnable() {
+        inputEventChannel.onInput += OnInput;
+        gameStateEventChannel.onGameStateChange += OnGameStateChange;
+
+        // Populate note lanes. Doing this programically ensures that the list is ordered correctly
+        if (noteLanes == null) {
+            noteLanes = new List<NoteLane>();
+        } else {
+            noteLanes.Clear();
+        }
+
+        NoteLane[] foundNoteLanes = GetComponentsInChildren<NoteLane>();
+        foreach (NoteLane noteLane in foundNoteLanes) {
+            noteLanes.Insert((int) noteLane.lane, noteLane);
+        }
+    }
+
+    private void OnDisable() {
+        inputEventChannel.onInput -= OnInput;
+        gameStateEventChannel.onGameStateChange -= OnGameStateChange;
+    }
 
     private void Start() {
         UpdateBoardSize();
@@ -25,16 +51,24 @@ public class NoteBoard : MonoBehaviour {
 
     private void Update() {
         if (GameManager.Instance.gameState == GAME_STATE.GAME_ACTIVE) {
-            foreach (Note n in activeNotes) {
-                n.Move();
+            foreach (NoteLane lane in noteLanes) {
+                lane.MoveNotes();
             }
+        }
+    }
+
+    private void ClearAllNoteLanes() {
+        foreach (NoteLane lane in noteLanes) {
+            if (lane != null) lane.Clear();
         }
     }
 
 
     public Vector3 GetNotePosition(float t, NOTE_BOARD_LANES laneNum) {
         float notePathWidth = boardWidth / numPaths;
-        return Vector3.Lerp(noteOrigin.position - lrOffset + (Vector3.right * (int)laneNum * notePathWidth) + centerOffset, 
+
+        // Using unclamped lerp, so that notes go past the end of the board
+        return Vector3.LerpUnclamped(noteOrigin.position - lrOffset + (Vector3.right * (int)laneNum * notePathWidth) + centerOffset, 
             noteDestination.position - lrOffset + (Vector3.right * (int)laneNum * notePathWidth) + centerOffset,
             t);
     }
@@ -54,7 +88,7 @@ public class NoteBoard : MonoBehaviour {
         Gizmos.DrawLine(noteOrigin.position + lrOffset, noteDestination.position + lrOffset);
 
         // -- Draw the individual note paths
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.cyan;
         float notePathWidth = boardWidth / numPaths;
 
         for (int i = 0; i < numPaths; i++) {
@@ -68,7 +102,42 @@ public class NoteBoard : MonoBehaviour {
             //    noteDestination.position - lrOffset + pathOffset);
         }
 
+
+
+        // -- Draw note thresholds
+        // Fetch a reference to the song player (the singleton isn't initialized in editor)
+        SongPlayer songPlayer;
+        if (Application.isPlaying) {
+            songPlayer = SongPlayer.Instance;
+        } else {
+            songPlayer = FindObjectOfType<SongPlayer>();
+            if (songPlayer == null) return;
+        }
+
+        // Calculate a multiplying vector that converts a time in seconds, to distance along the note board
+        Vector3 dirDestToOrigin = (noteOrigin.position - noteDestination.position).normalized;
+        float magnitude = (noteOrigin.position - noteDestination.position).magnitude;
+        Vector3 timeToDistMultiplier = dirDestToOrigin * (magnitude / songPlayer.difficultySettings.noteLifetime);
+
+        if (songPlayer.difficultySettings) {
+            // Draw the note threshold in each direction
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(noteDestination.position, noteDestination.position + timeToDistMultiplier * songPlayer.difficultySettings.goodThreshold);
+            Gizmos.DrawLine(noteDestination.position, noteDestination.position - timeToDistMultiplier * songPlayer.difficultySettings.goodThreshold);
+
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(noteDestination.position, noteDestination.position + timeToDistMultiplier * songPlayer.difficultySettings.greatThreshold);
+            Gizmos.DrawLine(noteDestination.position, noteDestination.position - timeToDistMultiplier * songPlayer.difficultySettings.greatThreshold);
+
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(noteDestination.position, noteDestination.position + timeToDistMultiplier * songPlayer.difficultySettings.perfectThreshold);
+            Gizmos.DrawLine(noteDestination.position, noteDestination.position - timeToDistMultiplier * songPlayer.difficultySettings.perfectThreshold);
+        }
+
         Gizmos.color = Color.white;
+    }
+
+    private void OnDrawGizmos() {
     }
 
 
@@ -94,22 +163,75 @@ public class NoteBoard : MonoBehaviour {
     }
     */
 
+    // Inits the board to a default state
+    private void OnGameStateChange(GAME_STATE oldGameState, GAME_STATE newGameState) {
+        switch (newGameState) {
+            case GAME_STATE.GAME_OVER:
+                ClearAllNoteLanes();
+                break;
+            case GAME_STATE.GAME_ACTIVE:
+                if(oldGameState != GAME_STATE.GAME_PAUSED) ClearAllNoteLanes();
+                break;
+        }
+    }
+
+
+
+    private void OnInput(INPUT_DIRS inputDir, int playerIndex) {
+        // Only one note board atm
+        // if (this.playerIndex = playerIndex) { }
+
+        if (GameManager.Instance.gameState == GAME_STATE.GAME_ACTIVE) {
+            // Note: If these don't line up in the enum, the player will have weird input issues
+            TryHitNote((NOTE_BOARD_LANES)inputDir);
+        }
+    }
+
+    private void TryHitNote(NOTE_BOARD_LANES lane) {
+        Note oldestNote = noteLanes[(int) lane].GetNoteAtOrder(0);
+
+        // No notes in this lane
+        if (oldestNote == null) return;
+
+        // Assumption: Note threshold is the same before and after the note
+        float timeToDestination = Mathf.Abs(oldestNote.GetTimeToDestination());
+
+        // Compare against each of the note thresholds (perfect/great/good) for this difficulty
+        if (timeToDestination < SongPlayer.Instance.difficultySettings.perfectThreshold) {
+            Debug.Log($"Perfect: {timeToDestination}/{SongPlayer.Instance.difficultySettings.perfectThreshold}");
+
+            // TODO: Register score
+            oldestNote.Destroy();
+        } else if (timeToDestination < SongPlayer.Instance.difficultySettings.greatThreshold) {
+            Debug.Log($"Great: {timeToDestination}/{SongPlayer.Instance.difficultySettings.greatThreshold}");
+
+            // TODO: Register score
+            oldestNote.Destroy();
+        } else if (timeToDestination < SongPlayer.Instance.difficultySettings.goodThreshold) {
+            Debug.Log($"Good: {timeToDestination}/{SongPlayer.Instance.difficultySettings.goodThreshold}");
+
+            // TODO: Register score
+            oldestNote.Destroy();
+        } else {
+            Debug.Log($"Miss: {timeToDestination}");
+        }
+    }
+
     // --------------------------------------------------------------------------------
     // Editor Debug
     // --------------------------------------------------------------------------------
     // TODO: Object pool
     [Button]
     public void SpawnNote(NOTE_BOARD_LANES lane) {
-        GameObject newNote = Instantiate(notePrefab, transform);
-        Note n = newNote.GetComponent<Note>();
+        if (noteLanes.Count < (int)lane) {
+            Debug.LogError($"Unable to spawn note in lane [{lane}]: That lane doesn't exist!");
+            return;
+        } else if (noteLanes[(int)lane] == null) {
+            Debug.LogError($"Unable to spawn note in lane [{lane}]: This note lane is null!");
+            return;
+        }
 
-        n.noteBoard = this;
-        n.lane = lane;
-
-        // Move the note into position
-        n.transform.position = GetNotePosition(0f, lane);
-
-        activeNotes.Add(n);
+        noteLanes[(int)lane].SpawnNote();
     }
 
     [ButtonGroup("Spawn Notes")] [Button("<")]
