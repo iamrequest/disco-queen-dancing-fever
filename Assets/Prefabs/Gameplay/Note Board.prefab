@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
   inputEventChannel: {fileID: 11400000, guid: fc773661a35fe034fa80d23bace38636, type: 2}
+  scoreEventChannel: {fileID: 11400000, guid: 7894763a530156043bada0da5004d623, type: 2}
   noteLanes: []
   noteOrigin: {fileID: 2413650745788091292}
   noteDestination: {fileID: 2413650746987114816}

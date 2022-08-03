@@ -23,6 +23,9 @@ public class SongPlayer : MonoBehaviour {
     private const float preSongDelay = 1f;
     public float elapsedMidiTime; // To get elapsed song time, subtract preSongDelay
 
+    [HideInInspector] public SongMetadata currentSong;
+    [HideInInspector] public SongDifficulty currentDifficulty;
+
 
     private void Awake() {
         if (Instance == null) {
@@ -83,7 +86,8 @@ public class SongPlayer : MonoBehaviour {
         audioSource.Stop();
         sequencer = null;
 
-        // TODO: Despawn notes after a delay
+        currentSong = null;
+        currentDifficulty = null;
     }
 
     [ButtonGroup("Song Management")]
@@ -109,6 +113,10 @@ public class SongPlayer : MonoBehaviour {
             sequencer = null;
             yield break;
         }
+
+        // Cache references to the current song, for any UI that might be interested
+        currentSong = songMetadata;
+        currentDifficulty = difficulty;
 
         // Let the game manager know that we're starting the game
         gameStateEventChannel.SendOnRequestGameStateChange(GAME_STATE.GAME_ACTIVE);

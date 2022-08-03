@@ -17,7 +17,7 @@ public class Note : MonoBehaviour {
         transform.position = noteBoard.GetNotePosition(t, lane);
 
         // If the note is expired by a greater amount than the worst hit timing threshold, destroy the note
-        if (GetTimeToDestination() < -SongPlayer.Instance.difficultySettings.goodThreshold) {
+        if (GetTimeToDestination() < -SongPlayer.Instance.difficultySettings.thresholdGood) {
             // TODO: Register a miss in the score manager
             Destroy();
         }

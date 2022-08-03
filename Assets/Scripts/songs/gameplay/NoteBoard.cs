@@ -11,6 +11,7 @@ public class NoteBoard : MonoBehaviour {
 
     public GameStateEventChannel gameStateEventChannel;
     public InputEventChannel inputEventChannel;
+    public ScoreEventChannel scoreEventChannel;
 
     [HideInInspector]
     public List<NoteLane> noteLanes;
@@ -122,16 +123,16 @@ public class NoteBoard : MonoBehaviour {
         if (songPlayer.difficultySettings) {
             // Draw the note threshold in each direction
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(noteDestination.position, noteDestination.position + timeToDistMultiplier * songPlayer.difficultySettings.goodThreshold);
-            Gizmos.DrawLine(noteDestination.position, noteDestination.position - timeToDistMultiplier * songPlayer.difficultySettings.goodThreshold);
+            Gizmos.DrawLine(noteDestination.position, noteDestination.position + timeToDistMultiplier * songPlayer.difficultySettings.thresholdGood);
+            Gizmos.DrawLine(noteDestination.position, noteDestination.position - timeToDistMultiplier * songPlayer.difficultySettings.thresholdGood);
 
             Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(noteDestination.position, noteDestination.position + timeToDistMultiplier * songPlayer.difficultySettings.greatThreshold);
-            Gizmos.DrawLine(noteDestination.position, noteDestination.position - timeToDistMultiplier * songPlayer.difficultySettings.greatThreshold);
+            Gizmos.DrawLine(noteDestination.position, noteDestination.position + timeToDistMultiplier * songPlayer.difficultySettings.thresholdGreat);
+            Gizmos.DrawLine(noteDestination.position, noteDestination.position - timeToDistMultiplier * songPlayer.difficultySettings.thresholdGreat);
 
             Gizmos.color = Color.green;
-            Gizmos.DrawLine(noteDestination.position, noteDestination.position + timeToDistMultiplier * songPlayer.difficultySettings.perfectThreshold);
-            Gizmos.DrawLine(noteDestination.position, noteDestination.position - timeToDistMultiplier * songPlayer.difficultySettings.perfectThreshold);
+            Gizmos.DrawLine(noteDestination.position, noteDestination.position + timeToDistMultiplier * songPlayer.difficultySettings.thresholdPerfect);
+            Gizmos.DrawLine(noteDestination.position, noteDestination.position - timeToDistMultiplier * songPlayer.difficultySettings.thresholdPerfect);
         }
 
         Gizmos.color = Color.white;
@@ -197,21 +198,21 @@ public class NoteBoard : MonoBehaviour {
         float timeToDestination = Mathf.Abs(oldestNote.GetTimeToDestination());
 
         // Compare against each of the note thresholds (perfect/great/good) for this difficulty
-        if (timeToDestination < SongPlayer.Instance.difficultySettings.perfectThreshold) {
-            Debug.Log($"Perfect: {timeToDestination}/{SongPlayer.Instance.difficultySettings.perfectThreshold}");
-
-            // TODO: Register score
+        if (timeToDestination < SongPlayer.Instance.difficultySettings.thresholdPerfect) {
+            //Debug.Log($"Perfect: {timeToDestination}/{SongPlayer.Instance.difficultySettings.thresholdPerfect}");
+            scoreEventChannel.SendOnRequestScoreChanged(SongPlayer.Instance.difficultySettings.scoreValuePerfect);
             oldestNote.Destroy();
-        } else if (timeToDestination < SongPlayer.Instance.difficultySettings.greatThreshold) {
-            Debug.Log($"Great: {timeToDestination}/{SongPlayer.Instance.difficultySettings.greatThreshold}");
 
-            // TODO: Register score
+        } else if (timeToDestination < SongPlayer.Instance.difficultySettings.thresholdGreat) {
+            //Debug.Log($"Great: {timeToDestination}/{SongPlayer.Instance.difficultySettings.thresholdGreat}");
+            scoreEventChannel.SendOnRequestScoreChanged(SongPlayer.Instance.difficultySettings.scoreValueGreat);
             oldestNote.Destroy();
-        } else if (timeToDestination < SongPlayer.Instance.difficultySettings.goodThreshold) {
-            Debug.Log($"Good: {timeToDestination}/{SongPlayer.Instance.difficultySettings.goodThreshold}");
 
-            // TODO: Register score
+        } else if (timeToDestination < SongPlayer.Instance.difficultySettings.thresholdGood) {
+            Debug.Log($"Good: {timeToDestination}/{SongPlayer.Instance.difficultySettings.thresholdGood}");
+            scoreEventChannel.SendOnRequestScoreChanged(SongPlayer.Instance.difficultySettings.scoreValueGood);
             oldestNote.Destroy();
+
         } else {
             Debug.Log($"Miss: {timeToDestination}");
         }

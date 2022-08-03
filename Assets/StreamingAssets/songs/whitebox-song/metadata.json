@@ -1,6 +1,6 @@
 {
     "songName": "Raspberry Jam",
-    "artistName":  "Artist",
+    "artistName":  "Example artist",
     "bpm":  120,
 	"audioFilename": "raspberry_jam.ogg",
 	"gamemode": "classic",
