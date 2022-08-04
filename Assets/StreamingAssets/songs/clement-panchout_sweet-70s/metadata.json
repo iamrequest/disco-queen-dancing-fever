@@ -1,0 +1,25 @@
+{
+    "songName": "Sweet 80s",
+    "artistName": "Clement Panchout",
+    "bpm":  120,
+	"audioFilename": "clement-panchout_sweet-70s.ogg",
+	"gamemode": "classic",
+	"version": "1.0",
+	"songDifficulties": [
+		{
+			"difficultyName": "Easy",
+			"midiFilename": "neocrey_miami-soul_easy.mid",
+			"playerInputMidiTrack": 1
+		},
+		{
+			"difficultyName": "Medium",
+			"midiFilename": "neocrey_miami-soul_easy.mid",
+			"playerInputMidiTrack": 1
+		},
+		{
+			"difficultyName": "Hard",
+			"midiFilename": "neocrey_miami-soul_easy.mid",
+			"playerInputMidiTrack": 1
+		}
+	]
+}

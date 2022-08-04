@@ -570,6 +570,8 @@ MonoBehaviour:
   controllerRight: {fileID: 4979907446829295769}
   footTrackerLeft: {fileID: 4979907447374601292}
   footTrackerRight: {fileID: 4979907447354251422}
+  leftRotOffset: {x: 0, y: 0, z: 0, w: 0}
+  rightRotOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4979907447332158142
 GameObject:
   m_ObjectHideFlags: 0

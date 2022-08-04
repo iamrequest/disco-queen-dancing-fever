@@ -37,6 +37,11 @@ public static class SongLoader {
             }
         }
 
+        // Sort list by song name
+        songsMetadata.Sort(delegate (SongMetadata a, SongMetadata b) {
+            return a.songName.CompareTo(b.songName);
+        });
+
         return songsMetadata;
     }
 
@@ -153,7 +158,7 @@ public static class SongLoader {
     }
 
     public static IEnumerator LoadAudioClip(AudioSource targetAudioSource, string filePath, AudioType audioType) {
-        // Validate that we're using the right call
+        // Validate that we're using the right audio type
         switch (audioType) {
             //case AudioType.WAV:
             //case AudioType.MPEG:

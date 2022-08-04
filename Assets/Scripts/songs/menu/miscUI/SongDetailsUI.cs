@@ -29,11 +29,15 @@ public class SongDetailsUI : MonoBehaviour {
 
     private void Render() {
         if (SongPlayer.Instance != null) {
-            songNameValueText.text = SongPlayer.Instance.currentSong.songName;
-            artistNameValueText.text = SongPlayer.Instance.currentSong.artistName;
-        } else {
-            songNameValueText.text = "";
-            artistNameValueText.text = "";
+            if (SongPlayer.Instance.currentSong != null) {
+                songNameValueText.text = SongPlayer.Instance.currentSong.songName;
+                artistNameValueText.text = SongPlayer.Instance.currentSong.artistName;
+                return;
+            }
         }
+
+        // No song loaded, this is probably an in-editor test
+        songNameValueText.text = "";
+        artistNameValueText.text = "";
     }
 }

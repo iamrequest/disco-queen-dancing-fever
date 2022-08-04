@@ -1,0 +1,25 @@
+{
+    "songName": "Miami Soul",
+    "artistName": "Neocrey",
+    "bpm":  130,
+	"audioFilename": "neocrey_miami-soul.ogg",
+	"gamemode": "classic",
+	"version": "1.0",
+	"songDifficulties": [
+		{
+			"difficultyName": "Easy",
+			"midiFilename": "neocrey_miami-soul_easy.mid",
+			"playerInputMidiTrack": 1
+		},
+		{
+			"difficultyName": "Medium",
+			"midiFilename": "neocrey_miami-soul_medium.mid",
+			"playerInputMidiTrack": 1
+		},
+		{
+			"difficultyName": "Hard",
+			"midiFilename": "neocrey_miami-soul_hard.mid",
+			"playerInputMidiTrack": 1
+		}
+	]
+}

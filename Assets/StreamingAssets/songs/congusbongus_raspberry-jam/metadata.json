@@ -1,0 +1,25 @@
+{
+    "songName": "Raspberry Jam",
+    "artistName":  "congusbongus",
+    "bpm":  120,
+	"audioFilename": "congusbongus_raspberry-jam.ogg",
+	"gamemode": "classic",
+	"version": "1.0",
+	"songDifficulties": [
+		{
+			"difficultyName": "Easy",
+			"midiFilename": "miami-soul_easy.mid",
+			"playerInputMidiTrack": 1
+		},
+		{
+			"difficultyName": "Medium",
+			"midiFilename": "miami-soul_easy.mid",
+			"playerInputMidiTrack": 1
+		},
+		{
+			"difficultyName": "Hard",
+			"midiFilename": "miami-soul_easy.mid",
+			"playerInputMidiTrack": 1
+		}
+	]
+}
