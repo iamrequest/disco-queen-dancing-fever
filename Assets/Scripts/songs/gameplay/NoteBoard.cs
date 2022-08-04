@@ -11,6 +11,7 @@ public class NoteBoard : MonoBehaviour {
 
     public GameStateEventChannel gameStateEventChannel;
     public InputEventChannel inputEventChannel;
+    public NoteHitEventChannel noteHitEventChannel;
     public ScoreEventChannel scoreEventChannel;
 
     [HideInInspector]
@@ -21,6 +22,7 @@ public class NoteBoard : MonoBehaviour {
 
     public float boardWidth;
     private const int numPaths = 4;
+
     [Range(0, 64)]
     public int maxNumNotesPerLane;
 
@@ -196,25 +198,23 @@ public class NoteBoard : MonoBehaviour {
 
         // Assumption: Note threshold is the same before and after the note
         float timeToDestination = Mathf.Abs(oldestNote.GetTimeToDestination());
+        //Debug.Log($"{timeToDestination}/{SongPlayer.Instance.difficultySettings.thresholdPerfect}");
 
         // Compare against each of the note thresholds (perfect/great/good) for this difficulty
         if (timeToDestination < SongPlayer.Instance.difficultySettings.thresholdPerfect) {
-            //Debug.Log($"Perfect: {timeToDestination}/{SongPlayer.Instance.difficultySettings.thresholdPerfect}");
             scoreEventChannel.SendOnRequestScoreChanged(SongPlayer.Instance.difficultySettings.scoreValuePerfect);
+            noteHitEventChannel.SendOnNoteHit(lane, NOTE_HIT_TYPES.PERFECT, 0);
             oldestNote.Destroy();
 
         } else if (timeToDestination < SongPlayer.Instance.difficultySettings.thresholdGreat) {
-            //Debug.Log($"Great: {timeToDestination}/{SongPlayer.Instance.difficultySettings.thresholdGreat}");
             scoreEventChannel.SendOnRequestScoreChanged(SongPlayer.Instance.difficultySettings.scoreValueGreat);
+            noteHitEventChannel.SendOnNoteHit(lane, NOTE_HIT_TYPES.GREAT, 0);
             oldestNote.Destroy();
 
         } else if (timeToDestination < SongPlayer.Instance.difficultySettings.thresholdGood) {
-            Debug.Log($"Good: {timeToDestination}/{SongPlayer.Instance.difficultySettings.thresholdGood}");
             scoreEventChannel.SendOnRequestScoreChanged(SongPlayer.Instance.difficultySettings.scoreValueGood);
+            noteHitEventChannel.SendOnNoteHit(lane, NOTE_HIT_TYPES.GOOD, 0);
             oldestNote.Destroy();
-
-        } else {
-            Debug.Log($"Miss: {timeToDestination}");
         }
     }
 

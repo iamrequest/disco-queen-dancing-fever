@@ -3798,6 +3798,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 624408458560375890, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 624408458560375890, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 624408458560375890, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1359606716905871297, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000024996698
+      objectReference: {fileID: 0}
     - target: {fileID: 2413650745188525818, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -3845,6 +3861,22 @@ PrefabInstance:
     - target: {fileID: 2413650745188525819, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
       propertyPath: m_Name
       value: Note Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181181653306115036, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181181653306115036, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181181653306115036, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9224776
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181181653306115036, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8160377
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 151ebea327f45e547a12acdea7f51578, type: 3}

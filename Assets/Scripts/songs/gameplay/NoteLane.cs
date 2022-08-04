@@ -10,7 +10,7 @@ public class NoteLane : MonoBehaviour {
 
     // This stores a sliding window of notes, fron oldestNoteIndex to (oldestNoteIndex + newestNoteIndex).
     // These indicies wrap around from maxNumNotes back to 0, and will be in the range of [0, maxNumNotes-1]
-    [ShowInInspector]
+    [ShowInInspector][HideInEditorMode]
     protected Note[] notes;
 
     [ReadOnly] public int oldestNoteIndex;
@@ -22,7 +22,7 @@ public class NoteLane : MonoBehaviour {
     }
 
     // --------------------------------------------------------------------------------
-    // Sliding Window Queue
+    // Sliding Window Queue, for notes
     // --------------------------------------------------------------------------------
     public void EnqueueNote(Note n) {
         if (count >= noteBoard.maxNumNotesPerLane - 1) {
@@ -96,5 +96,15 @@ public class NoteLane : MonoBehaviour {
                 n.Move();
             }
         }
+    }
+
+    // --------------------------------------------------------------------------------
+    // Editor 
+    // --------------------------------------------------------------------------------
+    // Used to align the icon buttons in editor
+    [Button]
+    private void Align() {
+        Vector3 newPos = noteBoard.GetNotePosition(1f, lane);
+        transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
     }
 }
