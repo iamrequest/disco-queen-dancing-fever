@@ -1,12 +1,16 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(Collider))]
 public class FloorInteractorButton : MonoBehaviour {
     private FloorInteractor floorInteractor;
     public INPUT_DIRS inputDir;
     private float timeSinceLastInput;
+
+    public VisualEffect onStepVFX;
 
     private void Awake() {
         floorInteractor = GetComponentInParent<FloorInteractor>();
@@ -25,8 +29,15 @@ public class FloorInteractorButton : MonoBehaviour {
 
         // Check that the layermasks match
         if ((floorInteractor.buttonLayerMask.value & (1 << other.gameObject.layer)) > 0) {
-            floorInteractor.SendInput(inputDir);
-            timeSinceLastInput = 0f;
+            OnPress();
         }
+    }
+
+    [Button]
+    private void OnPress() {
+        floorInteractor.SendInput(inputDir);
+        onStepVFX.SendEvent("OnStep"); // TODO: Convert this to hash
+
+        timeSinceLastInput = 0f;
     }
 }
