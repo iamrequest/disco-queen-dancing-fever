@@ -87,3 +87,9 @@ Assets/TextMesh\ Pro.meta
 
 Assets/Plugins/Demigiant
 Assets/Plugins/Demigiant.meta
+
+# Reaper backup files
+*.rpp-bak
+*.rpp-bak.meta
+*.reapeaks
+*.reapeaks.meta

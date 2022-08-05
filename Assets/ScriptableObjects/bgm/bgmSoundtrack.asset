@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c97660e3198b8949a76cbe7c1077491, type: 3}
+  m_Name: bgmSoundtrack
+  m_EditorClassIdentifier: 
+  bgmTitle: {fileID: 8300000, guid: c6894974117ce5844a3991570f491c13, type: 3}
+  bgmMenu: {fileID: 8300000, guid: 85156c8ae66ba354281984d0ae91b95c, type: 3}
+  bgmGameOver: {fileID: 8300000, guid: 830eb8c13ae7ff8428583e18ab99859b, type: 3}
+  volumeTitle: 0.8
+  volumeMenu: 1
+  volumeGameOver: 1
