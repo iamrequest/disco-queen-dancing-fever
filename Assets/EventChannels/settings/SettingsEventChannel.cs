@@ -13,6 +13,10 @@ public class SettingsEventChannel : ScriptableObject {
     public UnityAction startCalibrateFloorHeight; // Request a calibration
     public UnityAction<float> onCalibrateFloorHeight; // On calibration complete
 
+    // This should probably be in a separate Settings scriptable object
+    [Tooltip("Minimum height from the floor required to initiate a jump input")]
+    public float jumpMinHeight;
+
     public void SendInputTypeChanged(INPUT_TYPES inputType, int playerIndex) {
         if (onInputTypeChanged != null) {
             onInputTypeChanged.Invoke(inputType, playerIndex);

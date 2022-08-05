@@ -73,8 +73,8 @@ MonoBehaviour:
     audioFilename: 
     gamemode: 
     version: 
-    fullDirectoryPath: 
     songDifficulties: []
+    fullDirectoryPath: 
   currentDifficulty:
     difficultyName: 
     midiFilename: 

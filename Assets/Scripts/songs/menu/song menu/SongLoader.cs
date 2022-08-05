@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using SmfLite;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -59,11 +60,12 @@ public static class SongLoader {
 
             metadata.fullDirectoryPath = Path.GetDirectoryName(metadataFullFilePath);
 
-            if (IsMetadataFileValid(metadata)) {
-                return metadata;
-            } else {
+            if (!IsMetadataFileValid(metadata)) {
                 return null;
+            } else {
+                return metadata;
             }
+
         } catch (System.Exception e) {
             Debug.LogError($"Failed to parse metadata file: {metadataFullFilePath}: {e.Message}");
             return null;
@@ -92,6 +94,10 @@ public static class SongLoader {
                 if (!File.Exists(metadata.fullDirectoryPath + "/" + difficulty.midiFilename)) {
                     failureReasons.Add($"Difficulty [{difficulty.difficultyName}] is missing a midi track (File [{metadata.fullDirectoryPath + "/" + difficulty.midiFilename}] doesn't exist)\n");
                 }
+
+                //if (difficulty.perfectScore < 0f) {
+                //    failureReasons.Add($"Difficulty [{difficulty.difficultyName}] has an invalid perfect score (Unable to calculate how many notes are in this difficulty)\n");
+                //}
             }
         }
 

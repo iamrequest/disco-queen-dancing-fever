@@ -44,7 +44,7 @@ public class SongPlayer : MonoBehaviour {
     }
 
     private void Update() {
-        if(GameManager.Instance.gameState == GAME_STATE.GAME_ACTIVE) {
+        if (GameManager.Instance.gameState == GAME_STATE.GAME_ACTIVE) {
             AdvanceMidi();
         }
     }
@@ -172,6 +172,23 @@ public class SongPlayer : MonoBehaviour {
                 }
             }
         }
+    }
+
+    // TODO
+    private float CalculatePerfectScore(SongMetadata songMetadata , SongDifficulty difficulty) {
+        MidiFileContainer song = MidiFileLoader.Load(MidiFileToBytes(songMetadata, difficulty));
+        sequencer = new MidiTrackSequencer(song.tracks[difficulty.playerInputMidiTrack], song.division, songMetadata.bpm);
+        sequencer.Start();
+
+        //List<MidiEvent> events = sequencer.Advance(songMetadata.audioFilename);
+
+        // Listen to 
+        // if (events != null) {
+        //     foreach (MidiEvent e in events) {
+
+        //     }
+        // }
+        return 0f;
     }
 
     private bool IsNoteOn(MidiEvent e) {

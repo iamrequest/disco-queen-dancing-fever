@@ -12,7 +12,7 @@ public class Note : MonoBehaviour {
     [Tooltip("The time that this note spawned, in seconds")]
     public float spawnTime;
     public float t;
-    [ShowInInspector] private Renderer m_renderer;
+    public Renderer m_renderer;
 
     public void SetMaterial(Material m) {
         m_renderer.material = m;

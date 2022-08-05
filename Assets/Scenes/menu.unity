@@ -1101,11 +1101,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6879401295724784410, guid: 4b4c506245a81044b8c9c154a9fdfee2, type: 3}
   m_PrefabInstance: {fileID: 938489479}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &1002611750 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 4979907446717074650, guid: 7ddb41daee7735e46b31ba07a8397f24, type: 3}
-  m_PrefabInstance: {fileID: 4979907446520047868}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1033291940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,42 +1154,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 23193448469858917, guid: 92867bc808e93074cb441096df64bf34, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23193449990946947, guid: 92867bc808e93074cb441096df64bf34, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 150994943
-      objectReference: {fileID: 0}
-    - target: {fileID: 23193450421511263, guid: 92867bc808e93074cb441096df64bf34, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1244007923419649406, guid: 92867bc808e93074cb441096df64bf34, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 150994943
-      objectReference: {fileID: 0}
-    - target: {fileID: 1244007923547277519, guid: 92867bc808e93074cb441096df64bf34, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 150994943
-      objectReference: {fileID: 0}
-    - target: {fileID: 1244007923795751330, guid: 92867bc808e93074cb441096df64bf34, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1244007923829545390, guid: 92867bc808e93074cb441096df64bf34, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 150994943
-      objectReference: {fileID: 0}
-    - target: {fileID: 1244007924071012023, guid: 92867bc808e93074cb441096df64bf34, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 150994943
-      objectReference: {fileID: 0}
-    - target: {fileID: 1244007924449858750, guid: 92867bc808e93074cb441096df64bf34, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 150994943
-      objectReference: {fileID: 0}
     - target: {fileID: 1244007924968471179, guid: 92867bc808e93074cb441096df64bf34, type: 3}
       propertyPath: m_Name
       value: Settings Menu
@@ -1282,14 +1241,6 @@ PrefabInstance:
     - target: {fileID: 1244007924968471216, guid: 92867bc808e93074cb441096df64bf34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1244007925235055428, guid: 92867bc808e93074cb441096df64bf34, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 150994943
-      objectReference: {fileID: 0}
-    - target: {fileID: 7965218395634262854, guid: 92867bc808e93074cb441096df64bf34, type: 3}
-      propertyPath: isSelected
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92867bc808e93074cb441096df64bf34, type: 3}
@@ -2506,14 +2457,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1455718893846344988, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1531961004888646452, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2413650745188525818, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -2561,50 +2504,6 @@ PrefabInstance:
     - target: {fileID: 2413650745188525819, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
       propertyPath: m_Name
       value: Note Board
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834837853289867319, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4181181653306115036, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4181181653306115036, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_Color.g
-      value: 0.9224776
-      objectReference: {fileID: 0}
-    - target: {fileID: 4181181653306115036, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_Color.r
-      value: 0.8160377
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807383318471942379, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4807383318471942379, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6268608787991422670, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6467182537381743909, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7267189429643797952, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8539977892743736781, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8643892370628656101, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_Color.a
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
@@ -2733,30 +2632,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 994313799858047502, guid: 7907137859ea07c4d9a61639db3d2878, type: 3}
-      propertyPath: canDeselect
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970678370209100369, guid: 7907137859ea07c4d9a61639db3d2878, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970678371082670340, guid: 7907137859ea07c4d9a61639db3d2878, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970678371270339580, guid: 7907137859ea07c4d9a61639db3d2878, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970678371740755229, guid: 7907137859ea07c4d9a61639db3d2878, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 3440356990263673760, guid: 7907137859ea07c4d9a61639db3d2878, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 4069673655422274389, guid: 7907137859ea07c4d9a61639db3d2878, type: 3}
       propertyPath: m_Name
       value: In Game Song Menu
@@ -2843,30 +2718,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4069673655422274414, guid: 7907137859ea07c4d9a61639db3d2878, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4069673656292239472, guid: 7907137859ea07c4d9a61639db3d2878, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 4069673656554874729, guid: 7907137859ea07c4d9a61639db3d2878, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 4516941891895079553, guid: 7907137859ea07c4d9a61639db3d2878, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4516941891895079553, guid: 7907137859ea07c4d9a61639db3d2878, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7139549691300194763, guid: 7907137859ea07c4d9a61639db3d2878, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 8216037221191178474, guid: 7907137859ea07c4d9a61639db3d2878, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3236,10 +3087,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6409368637262800512, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 6409368637466051998, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3328,38 +3175,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Over Screen
       objectReference: {fileID: 0}
-    - target: {fileID: 6784570351737699441, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6788481048903904098, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 6788481049110458396, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 6788481049583463896, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 6788481049981077099, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 6788481050776357677, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 6788481050819935210, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 6788481050827296952, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
 --- !u!1001 &7620471356860301536
@@ -3369,22 +3184,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7620471354920797791, guid: ec3effac4d746474295c3a2bf608da39, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 7620471355974966914, guid: ec3effac4d746474295c3a2bf608da39, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 7620471356792110386, guid: ec3effac4d746474295c3a2bf608da39, type: 3}
       propertyPath: m_Name
       value: Controls
       objectReference: {fileID: 0}
-    - target: {fileID: 7620471356792110390, guid: ec3effac4d746474295c3a2bf608da39, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1002611750}
     - target: {fileID: 7620471356792110391, guid: ec3effac4d746474295c3a2bf608da39, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

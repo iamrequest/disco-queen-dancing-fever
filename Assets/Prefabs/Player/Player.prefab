@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 4979907447115867944}
   - component: {fileID: 7381269305969587208}
   - component: {fileID: 5836535540516546094}
+  - component: {fileID: 5335714096297800614}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -572,6 +573,20 @@ MonoBehaviour:
   footTrackerRight: {fileID: 4979907447354251422}
   leftRotOffset: {x: 0, y: 0, z: 0, w: 0}
   rightRotOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5335714096297800614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979907447115867951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7907965220e04004f8449b98d82cc691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingsEventChannel: {fileID: 11400000, guid: 8c372322db911e743a4f755830d52be6, type: 2}
+  inputEventChannel: {fileID: 11400000, guid: fc773661a35fe034fa80d23bace38636, type: 2}
 --- !u!1 &4979907447332158142
 GameObject:
   m_ObjectHideFlags: 0

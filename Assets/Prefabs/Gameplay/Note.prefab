@@ -132,3 +132,4 @@ MonoBehaviour:
   lane: 0
   spawnTime: 0
   t: 0
+  m_renderer: {fileID: 8175116509502241496}

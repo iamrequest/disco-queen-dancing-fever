@@ -6,12 +6,12 @@ using UnityEngine;
 
 public enum INPUT_DIRS { LEFT=0, UP = 1, DOWN=2, RIGHT=3}
 public class FloorInteractor : MonoBehaviour {
-    public SettingsEventChannel settingsEventChannel;
-    public InputEventChannel inputEventChannel;
-
     // Future proofing player input in the event that multiple floor interactors are a thing. Remove const when necessary
     [HideInInspector]
     public const int playerIndex = 0;
+
+    public SettingsEventChannel settingsEventChannel;
+    public InputEventChannel inputEventChannel;
 
     // These settings filter out multiple presses on the floor. Might be necessary to remove/reduce the cooldown during gameplay, but it's necessary for menu input
     public LayerMask buttonLayerMask;

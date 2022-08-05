@@ -9,10 +9,14 @@ using UnityEngine.Events;
 [CreateAssetMenu(menuName = "Events/Input Event Channel")]
 public class InputEventChannel : ScriptableObject {
     public UnityAction<INPUT_DIRS, int> onInput;
+    public UnityAction<int> onJump;
 
     public void SendPlayerInput(INPUT_DIRS inputDir, int playerIndex) {
         if (onInput != null) {
             onInput.Invoke(inputDir, playerIndex);
         }
+    }
+
+    public void SendOnJumpStarted(int playerIndex) {
     }
 }

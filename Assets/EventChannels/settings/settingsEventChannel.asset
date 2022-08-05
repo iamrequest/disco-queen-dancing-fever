@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38e2a23e3f0e7d438fb03912f5b74d8, type: 3}
   m_Name: settingsEventChannel
   m_EditorClassIdentifier: 
+  jumpMinHeight: 0.2

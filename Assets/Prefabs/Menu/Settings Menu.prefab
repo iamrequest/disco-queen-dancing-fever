@@ -1166,6 +1166,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: isSelected
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: canDeselect
       value: 0
       objectReference: {fileID: 0}
@@ -1325,6 +1329,10 @@ PrefabInstance:
     - target: {fileID: 1230042128086720699, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168398138045320477, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_Enabled
@@ -1490,6 +1498,10 @@ PrefabInstance:
     - target: {fileID: 1230042128086720699, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168398138045320477, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: m_Enabled

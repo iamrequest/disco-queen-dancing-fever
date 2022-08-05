@@ -5,6 +5,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class SongMetadata {
+    [Header("User-Supplied")]
     public string songName;
     public string artistName;
     public float bpm;
@@ -14,10 +15,12 @@ public class SongMetadata {
     public string gamemode; // Currently always "classic"
     public string version; // Currently always "1.0"
 
+    public List<SongDifficulty> songDifficulties;
+
+
+    [Header("Calculated")]
     [Tooltip("Path to the folder containing this file, without a trailing slash")]
     public string fullDirectoryPath;
-
-    public List<SongDifficulty> songDifficulties;
 
     public AudioType GetAudioType() {
         string fileExtension = Path.GetExtension(audioFilename);
@@ -36,6 +39,7 @@ public class SongMetadata {
 
 [System.Serializable]
 public class SongDifficulty {
+    [Header("User-Supplied")]
     [Tooltip("Custom string to represent this difficulty")]
     public string difficultyName;
 
