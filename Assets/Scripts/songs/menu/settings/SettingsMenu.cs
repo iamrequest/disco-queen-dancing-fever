@@ -44,7 +44,6 @@ public class SettingsMenu : GazableMenu {
     // Gaze Button Functionality
     // --------------------------------------------------------------------------------
     private void StartCallibration(bool state) {
-        buttonCallibrateStart.SetSelectedSilent(false, true);
         settingsEventChannel.SendStartCalibrateFloorHeight();
     }
 

@@ -15,14 +15,21 @@ public class GazeMenuButton : MonoBehaviour {
     private bool isHoveredThisFrame;
     public bool isSelected;
     public bool canDeselect;
+    [Tooltip("Silently forces the value to false")]
+    public bool deselectOnUnhover;
+    [Tooltip("Plays on change of state, after gazing at the button for long enough")]
+    public AudioClip onGazeSFX;
 
 
     [Tooltip("How long it takes to select this item, when hovered")]
     public float hoverSelectionDuration;
     private float elapsedHoverSelectionDuration;
     private bool hoverDisabled; // Disable hover after selection, re-enable after off-hover
+    public AnimationCurve imgFillAlpha;
 
-    public Image icon;
+    [Header("References")]
+    public Image imgIcon;
+    public Image imgFill;
     public Sprite selectedIcon, deselectedIcon;
     public TextMeshProUGUI label;
     public Transform centerTransform; // Used for snapping the UI icon to the center of this button
@@ -48,9 +55,15 @@ public class GazeMenuButton : MonoBehaviour {
     private void Update() {
         if (!isHoveredThisFrame) {
             elapsedHoverSelectionDuration = Mathf.Max(0f, elapsedHoverSelectionDuration - Time.deltaTime);
+            if (hoverDisabled && deselectOnUnhover) {
+                SetSelectedSilent(false, true);
+            }
             hoverDisabled = false;
-        }
+        } 
+
         isHoveredThisFrame = false;
+
+        UpdateFillAlpha();
     }
 
     private void OnGameStateChange(GAME_STATE oldGameState, GAME_STATE newGameState) {
@@ -59,6 +72,15 @@ public class GazeMenuButton : MonoBehaviour {
         }
     }
 
+    Color colorTmpFill;
+    private void UpdateFillAlpha() {
+        colorTmpFill = imgFill.color;
+
+        // If we've already selected the button, and we're still hovering, keep holding onto full opacity
+        colorTmpFill.a = imgFillAlpha.Evaluate(elapsedHoverSelectionDuration / hoverSelectionDuration);
+
+        imgFill.color = colorTmpFill;
+    }
 
     /// <summary>
     /// Change the state of this button silently (without sending state changed events).
@@ -80,9 +102,9 @@ public class GazeMenuButton : MonoBehaviour {
         this.isSelected = isSelected;
 
         if (isSelected) {
-            icon.sprite = selectedIcon;
+            imgIcon.sprite = selectedIcon;
         } else {
-            icon.sprite = deselectedIcon;
+            imgIcon.sprite = deselectedIcon;
         }
     }
 
@@ -94,6 +116,7 @@ public class GazeMenuButton : MonoBehaviour {
     [Button]
     public void SetSelected(bool isSelected, bool force = false) {
         SetSelectedSilent(isSelected, force);
+        SFXManager.Instance.PlaySFX(onGazeSFX, transform.position);
         onStateChanged.Invoke(isSelected);
     }
 
@@ -110,7 +133,6 @@ public class GazeMenuButton : MonoBehaviour {
         elapsedHoverSelectionDuration += Time.deltaTime;
 
         if (elapsedHoverSelectionDuration >= hoverSelectionDuration) {
-            elapsedHoverSelectionDuration = 0f;
             hoverDisabled = true;
             SetSelected(!isSelected);
         }

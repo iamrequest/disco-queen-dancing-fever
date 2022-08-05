@@ -33,6 +33,6 @@ public class ScoreUI : MonoBehaviour {
     }
 
     private void Render(int value) {
-        scoreValueText.text = value.ToString("000 000 000 000");
+        scoreValueText.text = value.ToString("000 000 000");
     }
 }

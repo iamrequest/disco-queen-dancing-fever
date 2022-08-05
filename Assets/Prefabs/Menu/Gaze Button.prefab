@@ -168,12 +168,13 @@ RectTransform:
   m_Children:
   - {fileID: 1230042128086720697}
   - {fileID: 521245082}
+  - {fileID: 5168398138045320477}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.13, y: -0.5}
+  m_AnchoredPosition: {x: 0.13000488, y: -0.5}
   m_SizeDelta: {x: 0.3, y: 0.29999995}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1230042126456698271
@@ -229,8 +230,35 @@ MonoBehaviour:
   gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
   isSelected: 0
   canDeselect: 0
+  deselectOnUnhover: 0
+  onGazeSFX: {fileID: 8300000, guid: fe79b5872d077a34b9265b0491a47803, type: 3}
   hoverSelectionDuration: 1
-  icon: {fileID: 1230042126456698270}
+  imgFillAlpha:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.2578616
+      outSlope: 1.2578616
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.1125
+    - serializedVersion: 3
+      time: 1
+      value: 0.5
+      inSlope: 0.09634678
+      outSlope: 0.09634678
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.19583333
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  imgIcon: {fileID: 1230042126456698270}
+  imgFill: {fileID: 7568928116196775836}
   selectedIcon: {fileID: 21300000, guid: 4d4912d985da709439ced7ca8c9cb565, type: 3}
   deselectedIcon: {fileID: 21300000, guid: f4c77839df37afd448d682b2483d6e53, type: 3}
   label: {fileID: 521245083}
@@ -329,3 +357,79 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3059041918147512372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5168398138045320477}
+  - component: {fileID: 1625447339912012467}
+  - component: {fileID: 7568928116196775836}
+  m_Layer: 5
+  m_Name: Fill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5168398138045320477
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059041918147512372}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2056776, y: 1.2056776, z: 1.2056776}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1230042126456698269}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1625447339912012467
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059041918147512372}
+  m_CullTransparentMesh: 1
+--- !u!114 &7568928116196775836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059041918147512372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.77858657, g: 0.5613208, b: 1, a: 0.5019608}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 8ec37cee357ecd941abd543234ab3f31, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
