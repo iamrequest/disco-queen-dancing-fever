@@ -7,6 +7,7 @@ using UnityEngine;
 public class NoteLane : MonoBehaviour {
     public NoteBoard noteBoard;
     public NOTE_BOARD_LANES lane;
+    public Material noteMaterial;
 
     // This stores a sliding window of notes, fron oldestNoteIndex to (oldestNoteIndex + newestNoteIndex).
     // These indicies wrap around from maxNumNotes back to 0, and will be in the range of [0, maxNumNotes-1]
@@ -83,6 +84,7 @@ public class NoteLane : MonoBehaviour {
         n.noteBoard = noteBoard;
         n.lane = lane;
         n.spawnTime = SongPlayer.Instance.elapsedMidiTime;
+        n.SetMaterial(noteMaterial);
 
         // Move the note into position
         n.transform.position = noteBoard.GetNotePosition(0f, lane);

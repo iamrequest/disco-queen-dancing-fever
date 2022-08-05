@@ -516,6 +516,10 @@ PrefabInstance:
       propertyPath: noteBoard
       value: 
       objectReference: {fileID: 2413650745188525817}
+    - target: {fileID: 8011779364185672392, guid: 698042b89b46dda42b02c53b22eb716f, type: 3}
+      propertyPath: noteMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a6dd75a0a1802246bf786c456a4245e, type: 2}
     - target: {fileID: 8391254773708715551, guid: 698042b89b46dda42b02c53b22eb716f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -667,6 +671,10 @@ PrefabInstance:
       propertyPath: noteBoard
       value: 
       objectReference: {fileID: 2413650745188525817}
+    - target: {fileID: 8011779364185672392, guid: 698042b89b46dda42b02c53b22eb716f, type: 3}
+      propertyPath: noteMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 1b1f870dfdd136e408685e483a6a9a5d, type: 2}
     - target: {fileID: 8391254773708715551, guid: 698042b89b46dda42b02c53b22eb716f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -770,6 +778,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.041513
       objectReference: {fileID: 0}
+    - target: {fileID: 6677563185809891842, guid: 698042b89b46dda42b02c53b22eb716f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9224776
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677563185809891842, guid: 698042b89b46dda42b02c53b22eb716f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8160377
+      objectReference: {fileID: 0}
     - target: {fileID: 8003430206275683406, guid: 698042b89b46dda42b02c53b22eb716f, type: 3}
       propertyPath: m_Name
       value: Note Lane L
@@ -778,6 +794,10 @@ PrefabInstance:
       propertyPath: noteBoard
       value: 
       objectReference: {fileID: 2413650745188525817}
+    - target: {fileID: 8011779364185672392, guid: 698042b89b46dda42b02c53b22eb716f, type: 3}
+      propertyPath: noteMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 90243eb9a6c55ca46b5a6e04bbf76ed3, type: 2}
     - target: {fileID: 8391254773708715551, guid: 698042b89b46dda42b02c53b22eb716f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -848,7 +868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8391254773708715551, guid: 698042b89b46dda42b02c53b22eb716f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0000000018626
+      value: -0.000024996698
       objectReference: {fileID: 0}
     - target: {fileID: 8391254773708715551, guid: 698042b89b46dda42b02c53b22eb716f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -932,6 +952,10 @@ PrefabInstance:
       propertyPath: noteBoard
       value: 
       objectReference: {fileID: 2413650745188525817}
+    - target: {fileID: 8011779364185672392, guid: 698042b89b46dda42b02c53b22eb716f, type: 3}
+      propertyPath: noteMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 64061d6aed5faf6439e8f0c1adfa7d04, type: 2}
     - target: {fileID: 8391254773708715551, guid: 698042b89b46dda42b02c53b22eb716f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
