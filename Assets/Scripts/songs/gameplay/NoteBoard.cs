@@ -18,6 +18,7 @@ public class NoteBoard : MonoBehaviour {
     public List<NoteLane> noteLanes;
 
     public Transform noteOrigin, noteDestination;
+    public RectTransform backboard;
     public GameObject notePrefab;
 
     public float boardWidth;
@@ -165,6 +166,18 @@ public class NoteBoard : MonoBehaviour {
         noteOrigin.position = destToOrigin * boardDistance;
     }
     */
+
+    [Button]
+    public void AlignBackboard() {
+        // Align the position of the quad
+        Vector3 originToDest = noteDestination.position - noteOrigin.position;
+        backboard.position = noteOrigin.position + (originToDest / 2);
+
+        // Align the rotation of the quad
+        backboard.up = -originToDest.normalized;
+
+        backboard.rect.Set(0f, 0f, boardWidth, originToDest.magnitude);
+    }
 
     // Inits the board to a default state
     private void OnGameStateChange(GAME_STATE oldGameState, GAME_STATE newGameState) {

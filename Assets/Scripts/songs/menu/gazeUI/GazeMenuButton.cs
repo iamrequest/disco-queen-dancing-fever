@@ -43,6 +43,8 @@ public class GazeMenuButton : MonoBehaviour {
         if (!gazableMenu) {
             Debug.LogWarning("Could not find a gazable menu in the parent of this gameobject!");
         }
+
+        SetSelectedSilent(isSelected, true);
     }
 
     private void OnEnable() {
