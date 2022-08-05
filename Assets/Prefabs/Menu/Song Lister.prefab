@@ -369,6 +369,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputEventChannel: {fileID: 11400000, guid: fc773661a35fe034fa80d23bace38636, type: 2}
   isSongSelected: 0
+  sfxMenuMove: {fileID: 8300000, guid: 2469da2640c48c94e88658f5a748fc3e, type: 3}
+  sfxMenuBack: {fileID: 8300000, guid: 49fb8f30088c0304380c1925c4b3322c, type: 3}
+  sfxSongSelect: {fileID: 8300000, guid: 92531f12de4439f419998c5764ffcaf4, type: 3}
+  sfxDifficultySelect: {fileID: 8300000, guid: ecf12c1b8e3ded544ae251ac099b6f9f, type: 3}
 --- !u!95 &7656492720722495907
 Animator:
   serializedVersion: 4

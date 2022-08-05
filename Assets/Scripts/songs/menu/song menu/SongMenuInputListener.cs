@@ -6,6 +6,7 @@ using UnityEngine;
 public class SongMenuInputListener : MonoBehaviour {
     public InputEventChannel inputEventChannel;
     public bool isSongSelected;
+    public AudioClip sfxMenuMove, sfxMenuBack, sfxSongSelect, sfxDifficultySelect;
 
     private void OnEnable() {
         inputEventChannel.onInput += OnInput;
@@ -28,13 +29,18 @@ public class SongMenuInputListener : MonoBehaviour {
             switch (inputDir) {
                 case INPUT_DIRS.UP:
                     SongDetailsMenu.Instance.PrevSong();
+                    SFXManager.Instance.PlaySFX(sfxMenuMove, transform.position);
                     break;
+
                 case INPUT_DIRS.DOWN:
                     SongDetailsMenu.Instance.NextSong();
+                    SFXManager.Instance.PlaySFX(sfxMenuMove, transform.position);
                     break;
+
                 case INPUT_DIRS.RIGHT:
                     isSongSelected = true;
                     SongDifficultyMenu.Instance.SetHighlightSelectedMenuItem(true);
+                    SFXManager.Instance.PlaySFX(sfxSongSelect, transform.position);
                     break;
             }
         } else {
@@ -42,18 +48,25 @@ public class SongMenuInputListener : MonoBehaviour {
             switch (inputDir) {
                 case INPUT_DIRS.UP:
                     SongDifficultyMenu.Instance.PrevSong();
+                    SFXManager.Instance.PlaySFX(sfxMenuMove, transform.position);
                     break;
+
                 case INPUT_DIRS.DOWN:
                     SongDifficultyMenu.Instance.NextSong();
+                    SFXManager.Instance.PlaySFX(sfxMenuMove, transform.position);
                     break;
+
                 case INPUT_DIRS.RIGHT:
                     isSongSelected = false;
                     SongDifficultyMenu.Instance.SetHighlightSelectedMenuItem(false);
                     SongDifficultyMenu.Instance.StartSelected();
+                    SFXManager.Instance.PlaySFX(sfxDifficultySelect, transform.position);
                     break;
+
                 case INPUT_DIRS.LEFT:
                     isSongSelected = false;
                     SongDifficultyMenu.Instance.SetHighlightSelectedMenuItem(false);
+                    SFXManager.Instance.PlaySFX(sfxMenuBack, transform.position);
                     break;
             }
         }
