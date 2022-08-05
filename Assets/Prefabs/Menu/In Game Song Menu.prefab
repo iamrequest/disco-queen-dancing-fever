@@ -941,7 +941,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!65 &2970678371096777592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1739,6 +1739,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: deselectOnGameState
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: gameStateEventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
+    - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: onStateChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1912,8 +1920,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: gameStateEventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
+    - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: onStateChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: onStateChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1922,7 +1934,7 @@ PrefabInstance:
     - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: onStateChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1813161064869540534}
+      objectReference: {fileID: 0}
     - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: onStateChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1946,7 +1958,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1230042126456698268, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
   m_PrefabInstance: {fileID: 7139549691617949776}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1813161064869540534
+--- !u!114 &2903548662663006097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1955,11 +1967,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8216037219590507980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8585c5e95dadd334db6464e001ef2fcf, type: 3}
+  m_Script: {fileID: 11500000, guid: 360ff1774eaba7d498e0dc169d42d05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
-  targetGameState: 16
 --- !u!224 &8216037219590507981 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1230042126456698269, guid: 2356e418de1abc84db348fb7262830e7, type: 3}

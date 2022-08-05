@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f077bc1766f04174ba052992124e09df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  centerTransform: {fileID: 1230042128086720697}
+  gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
   isSelected: 0
   canDeselect: 0
   hoverSelectionDuration: 1
@@ -234,9 +234,11 @@ MonoBehaviour:
   selectedIcon: {fileID: 21300000, guid: 4d4912d985da709439ced7ca8c9cb565, type: 3}
   deselectedIcon: {fileID: 21300000, guid: f4c77839df37afd448d682b2483d6e53, type: 3}
   label: {fileID: 521245083}
+  centerTransform: {fileID: 1230042128086720697}
   onStateChanged:
     m_PersistentCalls:
       m_Calls: []
+  deselectOnGameState: 0
 --- !u!1 &1230042128086720696
 GameObject:
   m_ObjectHideFlags: 0

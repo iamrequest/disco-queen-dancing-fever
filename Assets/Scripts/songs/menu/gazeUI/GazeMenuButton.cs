@@ -5,11 +5,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 // These are simple boolean buttons, which is fine for my use-case. Some of these inputs should be toggles, or one-shot checkboxes.
 public class GazeMenuButton : MonoBehaviour {
     private GazableMenu gazableMenu;
 
+    public GameStateEventChannel gameStateEventChannel;
     private bool isHoveredThisFrame;
     public bool isSelected;
     public bool canDeselect;
@@ -27,11 +29,20 @@ public class GazeMenuButton : MonoBehaviour {
 
     public UnityEvent<bool> onStateChanged;
 
+    public GAME_STATE deselectOnGameState;
+
     private void Awake() {
         gazableMenu = GetComponentInParent<GazableMenu>();
         if (!gazableMenu) {
             Debug.LogWarning("Could not find a gazable menu in the parent of this gameobject!");
         }
+    }
+
+    private void OnEnable() {
+        gameStateEventChannel.onGameStateChange += OnGameStateChange;
+    }
+    private void OnDisable() {
+        gameStateEventChannel.onGameStateChange -= OnGameStateChange;
     }
 
     private void Update() {
@@ -41,6 +52,13 @@ public class GazeMenuButton : MonoBehaviour {
         }
         isHoveredThisFrame = false;
     }
+
+    private void OnGameStateChange(GAME_STATE oldGameState, GAME_STATE newGameState) {
+        if ((newGameState & deselectOnGameState) > 0) {
+            SetSelectedSilent(false, true);
+        }
+    }
+
 
     /// <summary>
     /// Change the state of this button silently (without sending state changed events).
@@ -52,12 +70,13 @@ public class GazeMenuButton : MonoBehaviour {
     public void SetSelectedSilent(bool isSelected, bool force = false) {
         if (!force) {
             // Ignore setting the value if no change is made (avoid event spam)
-            if (isSelected && this.isSelected) return;
+            if (isSelected == this.isSelected) return;
 
             // Disallow de-selection, if that option is enabled
-            if (this.isSelected && !canDeselect) return;
+            if (!isSelected && !canDeselect) return;
         }
 
+        //Debug.Log($"Changing state of button: from {this.isSelected} to {isSelected} ");
         this.isSelected = isSelected;
 
         if (isSelected) {
@@ -86,7 +105,7 @@ public class GazeMenuButton : MonoBehaviour {
         if (hoverDisabled) return;
 
         // Disallow de-selection, if that option is enabled
-        if (isSelected && canDeselect) return;
+        if (isSelected && !canDeselect) return;
 
         elapsedHoverSelectionDuration += Time.deltaTime;
 
