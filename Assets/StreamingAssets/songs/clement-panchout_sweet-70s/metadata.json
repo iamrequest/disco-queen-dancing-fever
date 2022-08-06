@@ -8,12 +8,12 @@
 	"songDifficulties": [
 		{
 			"difficultyName": "Easy",
-			"midiFilename": "clement-panchout_sweet-70s_hard.mid",
+			"midiFilename": "clement-panchout_sweet-70s_easy.mid",
 			"playerInputMidiTrack": 1
 		},
 		{
 			"difficultyName": "Medium",
-			"midiFilename": "clement-panchout_sweet-70s_hard.mid",
+			"midiFilename": "clement-panchout_sweet-70s_med.mid",
 			"playerInputMidiTrack": 1
 		},
 		{
