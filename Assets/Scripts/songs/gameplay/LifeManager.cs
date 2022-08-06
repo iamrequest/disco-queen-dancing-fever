@@ -16,6 +16,7 @@ public class LifeManager : MonoBehaviour
     public TextMeshProUGUI uiText;
 
     public int currentHealth;
+    public bool invincibility;
 
     private void OnEnable() {
         gameStateEventChannel.onGameStateChange += OnGameStateChange;
@@ -60,7 +61,9 @@ public class LifeManager : MonoBehaviour
     private void OnNoteMiss(NOTE_BOARD_LANES lane, int playerIndex) {
         if (GameManager.Instance.gameState != GAME_STATE.GAME_ACTIVE) return;
 
-        AdjustHealth(-difficultySettings.damageNoteMiss);
+        if (!invincibility && Application.isEditor) {
+            AdjustHealth(-difficultySettings.damageNoteMiss);
+        }
         Render();
 
         if (currentHealth <= 0) {

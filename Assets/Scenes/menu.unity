@@ -2521,6 +2521,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Note Board
       objectReference: {fileID: 0}
+    - target: {fileID: 4936223857422586039, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: invincibility
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4980512579195001141, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
