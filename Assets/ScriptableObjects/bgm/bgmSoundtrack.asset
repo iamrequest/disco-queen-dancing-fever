@@ -15,6 +15,7 @@ MonoBehaviour:
   bgmTitle: {fileID: 8300000, guid: c6894974117ce5844a3991570f491c13, type: 3}
   bgmMenu: {fileID: 8300000, guid: 85156c8ae66ba354281984d0ae91b95c, type: 3}
   bgmGameOver: {fileID: 8300000, guid: 830eb8c13ae7ff8428583e18ab99859b, type: 3}
+  sfxOnGameWon: {fileID: 8300000, guid: 120fe1a6b880c8a409fdae0042df2d04, type: 3}
   volumeTitle: 0.8
   volumeMenu: 1
   volumeGameOver: 1

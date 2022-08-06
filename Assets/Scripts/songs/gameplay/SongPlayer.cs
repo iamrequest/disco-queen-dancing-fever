@@ -59,7 +59,8 @@ public class SongPlayer : MonoBehaviour {
                     UnpauseSong();
                 }
                 break;
-            case GAME_STATE.GAME_OVER:
+            case GAME_STATE.GAME_LOST:
+            case GAME_STATE.GAME_WON:
                 StopSong();
                 break;
         }
@@ -142,7 +143,7 @@ public class SongPlayer : MonoBehaviour {
             yield return null;
         }
 
-        gameStateEventChannel.SendOnRequestGameStateChange(GAME_STATE.GAME_OVER);
+        gameStateEventChannel.SendOnRequestGameStateChange(GAME_STATE.GAME_WON);
         //StopSong(); // This gets called as a result of the game state change
     }
 

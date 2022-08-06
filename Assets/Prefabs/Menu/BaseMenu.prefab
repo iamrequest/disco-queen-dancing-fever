@@ -66,16 +66,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Step on the floor panels to hit notes.
+  m_text: 'Step on the <color=#FF9CF5>floor buttons</color> to hit notes.
 
 
-    Step on notes right when
-    they cross the white bar to earn more points.
+    Step
+    on notes right when they cross the bar to earn more points.
 
 
-    When you''ve maxed out the
-    FEVER METER on the right, jump to activate FEVER MODE! Be ready to dance, because
-    you can only use it once per song!'
+    When the <color=#FF9CF5>FEVER
+    Meter</color> is full, <color=#FF9CF5>jump</color> to activate <color=#FF9CF5>FEVER
+    MODE</color> for a 2x point bonus!
+
+
+    Be ready to dance, <color=#FF9CF5>FEVER
+    MODE can only be used once</color> per song!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 09ff41922e2ca18469dfc585092d666a, type: 2}
   m_sharedMaterial: {fileID: -3933406573493747989, guid: 09ff41922e2ca18469dfc585092d666a, type: 2}
@@ -345,7 +349,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f9c1dd28aa1122e43ae689632f304db1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77aa9315d47bfaf4daf3d93b864a8648, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

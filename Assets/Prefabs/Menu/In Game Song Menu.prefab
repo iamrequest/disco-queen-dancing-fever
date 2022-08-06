@@ -1029,7 +1029,7 @@ MonoBehaviour:
   gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
   animator: {fileID: 4635367356194668349}
   showOnState: 24
-  hideOnState: 36
+  hideOnState: 100
 --- !u!114 &1068108944810148002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1799,7 +1799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
-  targetGameState: 32
+  targetGameState: 64
 --- !u!1001 &7139549691617949776
 PrefabInstance:
   m_ObjectHideFlags: 0

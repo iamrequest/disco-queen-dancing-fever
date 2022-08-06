@@ -26,4 +26,9 @@ public class DifficultySettings : ScriptableObject {
     public int scoreValuePerfect;
     public int scoreValueGreat;
     public int scoreValueGood;
+
+    [Header("Life Settings")]
+    public int healthMax;
+    public int damageNoteMiss;
+    public int healthRegenPerfect, healthRegenGreat, healthRegenGood;
 }

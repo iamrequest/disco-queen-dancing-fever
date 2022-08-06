@@ -533,7 +533,7 @@ MonoBehaviour:
   gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
   animator: {fileID: 5365623506770173428}
   showOnState: 2
-  hideOnState: 60
+  hideOnState: 124
 --- !u!114 &671330719161242401
 MonoBehaviour:
   m_ObjectHideFlags: 0

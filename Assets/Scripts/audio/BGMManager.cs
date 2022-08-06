@@ -49,7 +49,13 @@ public class BGMManager : MonoBehaviour {
                 FadeToStop();
                 break;
 
-            case GAME_STATE.GAME_OVER:
+            case GAME_STATE.GAME_WON:
+                SFXManager.Instance.PlaySFX(soundtrack.sfxOnGameWon, transform.position);
+                Stop();
+                FadeToStopThenPlay(soundtrack.bgmGameOver, soundtrack.volumeGameOver);
+                break;
+
+            case GAME_STATE.GAME_LOST:
                 Stop();
                 FadeToStopThenPlay(soundtrack.bgmGameOver, soundtrack.volumeGameOver);
                 break;

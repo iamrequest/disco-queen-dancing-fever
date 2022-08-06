@@ -46,7 +46,7 @@ public class ScoreManager : MonoBehaviour {
                 ResetScore();
                 break;
             case GAME_STATE.GAME_ACTIVE:
-                if (oldGameState == GAME_STATE.GAME_OVER) {
+                if (oldGameState == GAME_STATE.GAME_LOST || oldGameState == GAME_STATE.GAME_WON) {
                     ResetScore();
                 }
                 break;

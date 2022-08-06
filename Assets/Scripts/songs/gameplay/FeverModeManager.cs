@@ -63,7 +63,8 @@ public class FeverModeManager : MonoBehaviour {
                 }
                 break;
             case GAME_STATE.MAIN_MENU:
-            case GAME_STATE.GAME_OVER: 
+            case GAME_STATE.GAME_LOST: 
+            case GAME_STATE.GAME_WON: 
                 ResetFeverMode();
                 Render();
                 break;
@@ -104,13 +105,17 @@ public class FeverModeManager : MonoBehaviour {
 
     [ButtonGroup]
     private void Render() {
-        slider.value = feverGauge;
-
         feverUIText.text = "FEVER";
         feverUIText.lineSpacing = 70f;
 
+        if (isFeverModeUsed) {
+            slider.value = 0f;
+        } else {
+            slider.value = feverGauge;
+        }
+
         if (isFeverModeAvailable && !isFeverModeUsed) {
-            feverUIText.text = "JUMP";
+            feverUIText.text = "JUMP!";
             feverUIText.lineSpacing = 70f;
         } else if (isFeverModeActive) {
             slider.value = (difficultySettings.feverModeDuration - elapsedFeverDuration) / difficultySettings.feverModeDuration;
@@ -163,7 +168,7 @@ public class FeverModeManager : MonoBehaviour {
     private IEnumerator DisableFeverModeAfterDuration() {
         elapsedFeverDuration = 0f;
         while (elapsedFeverDuration < difficultySettings.feverModeDuration) {
-            if (GameManager.Instance.gameState == GAME_STATE.GAME_OVER || GameManager.Instance.gameState == GAME_STATE.MAIN_MENU) {
+            if (GameManager.Instance.gameState == GAME_STATE.GAME_WON || GameManager.Instance.gameState == GAME_STATE.GAME_LOST || GameManager.Instance.gameState == GAME_STATE.MAIN_MENU) {
                 // Might be cleaner/faster to cache the coroutine, and destroy this on event
                 break;
             }

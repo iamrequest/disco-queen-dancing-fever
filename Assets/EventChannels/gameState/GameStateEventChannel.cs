@@ -46,7 +46,10 @@ public class GameStateEventChannel : ScriptableObject {
     [ButtonGroup("StateChange Game")]
     private void RequestGameStatePaused() { SendOnRequestGameStateChange(GAME_STATE.GAME_PAUSED); }
 
-    [Button("Game Over")]
+    [Button("Game Won")]
     [ButtonGroup("StateChange Game")]
-    private void RequestGameStateGameOver() { SendOnRequestGameStateChange(GAME_STATE.GAME_OVER); }
+    private void RequestGameStateGameWon() { SendOnRequestGameStateChange(GAME_STATE.GAME_WON); }
+    [Button("Game Lost")]
+    [ButtonGroup("StateChange Game")]
+    private void RequestGameStateGameLost() { SendOnRequestGameStateChange(GAME_STATE.GAME_LOST); }
 }

@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ef163e9c63e014da136f04bb5e02e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noteHitEventChannel: {fileID: 11400000, guid: cd82bb977d18caf409341c24e22af9fb, type: 2}
   noteBoard: {fileID: 0}
   lane: 0
   spawnTime: 0

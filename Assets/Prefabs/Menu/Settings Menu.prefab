@@ -861,7 +861,7 @@ MonoBehaviour:
   gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
   animator: {fileID: 7234022273471991301}
   showOnState: 20
-  hideOnState: 40
+  hideOnState: 104
 --- !u!95 &7234022273471991301
 Animator:
   serializedVersion: 4

@@ -379,6 +379,7 @@ GameObject:
   - component: {fileID: 6598606895785283698}
   - component: {fileID: 7438049705416490684}
   - component: {fileID: 1715321526156495244}
+  - component: {fileID: 1043917338712787371}
   m_Layer: 5
   m_Name: Game Over Menu
   m_TagString: Untagged
@@ -545,8 +546,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
   animator: {fileID: 7438049705416490684}
-  showOnState: 32
+  showOnState: 96
   hideOnState: 28
+--- !u!114 &1043917338712787371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409368637466052005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0016e9a5a11c14da736663722c4725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStateEventChannel: {fileID: 11400000, guid: 674d1e497195bdd49ae6b8abba19e6a2, type: 2}
+  uiText: {fileID: 6409368637262800512}
 --- !u!1 &6788481048903904096
 GameObject:
   m_ObjectHideFlags: 0

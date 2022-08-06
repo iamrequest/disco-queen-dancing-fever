@@ -2465,6 +2465,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1204323569, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1097639526008356756, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2413650745188525818, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -2512,6 +2520,14 @@ PrefabInstance:
     - target: {fileID: 2413650745188525819, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
       propertyPath: m_Name
       value: Note Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980512579195001141, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4980512579195001141, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
@@ -3084,7 +3100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6409368637466051998, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.7159996
+      value: 2.7159994
       objectReference: {fileID: 0}
     - target: {fileID: 6409368637466051998, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3104,7 +3120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6409368637466051998, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.204
+      value: -1.454
       objectReference: {fileID: 0}
     - target: {fileID: 6409368637466051998, guid: 8c464f7cd4104a24ebe13ab7a432d863, type: 3}
       propertyPath: m_AnchoredPosition.y

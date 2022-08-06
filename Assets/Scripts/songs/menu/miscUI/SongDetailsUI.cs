@@ -21,7 +21,8 @@ public class SongDetailsUI : MonoBehaviour {
     private void OnGameStateChanged(GAME_STATE oldState, GAME_STATE newState) {
         switch (newState) {
             case GAME_STATE.GAME_ACTIVE:
-            case GAME_STATE.GAME_OVER:
+            case GAME_STATE.GAME_WON:
+            case GAME_STATE.GAME_LOST:
                 Render();
                 break;
         }

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Note : MonoBehaviour {
+    public NoteHitEventChannel noteHitEventChannel;
+
     [HideInInspector]
     public NoteBoard noteBoard;
     [HideInInspector]
@@ -24,7 +26,7 @@ public class Note : MonoBehaviour {
 
         // If the note is expired by a greater amount than the worst hit timing threshold, destroy the note
         if (GetTimeToDestination() < -SongPlayer.Instance.difficultySettings.thresholdGood) {
-            // TODO: Register a miss in the score manager
+            noteHitEventChannel.SendOnNoteMiss(lane, 0); //noteHitEventChannel.SendOnNoteMiss(lane, noteBoard.playerIndex);
             Destroy();
         }
     }

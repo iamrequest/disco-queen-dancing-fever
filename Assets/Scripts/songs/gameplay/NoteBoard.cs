@@ -182,7 +182,10 @@ public class NoteBoard : MonoBehaviour {
     // Inits the board to a default state
     private void OnGameStateChange(GAME_STATE oldGameState, GAME_STATE newGameState) {
         switch (newGameState) {
-            case GAME_STATE.GAME_OVER:
+            case GAME_STATE.GAME_WON:
+                ClearAllNoteLanes();
+                break;
+            case GAME_STATE.GAME_LOST:
                 ClearAllNoteLanes();
                 break;
             case GAME_STATE.GAME_ACTIVE:

@@ -21,3 +21,8 @@ MonoBehaviour:
   scoreValuePerfect: 500
   scoreValueGreat: 250
   scoreValueGood: 100
+  healthMax: 100
+  damageNoteMiss: 10
+  healthRegenPerfect: 7
+  healthRegenGreat: 5
+  healthRegenGood: 3
