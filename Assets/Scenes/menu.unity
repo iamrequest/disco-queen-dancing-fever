@@ -2457,6 +2457,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 307482334, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 307482334, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2413650745188525818, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -2568,63 +2576,6 @@ PrefabInstance:
       objectReference: {fileID: 864568702}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9317fdaafe437a6419fbddf106d05eae, type: 3}
---- !u!1001 &2651910743146131559
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2651910743926565324, guid: ad6fa985ceab7dd41aa4ed3614fab61d, type: 3}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651910743926565324, guid: ad6fa985ceab7dd41aa4ed3614fab61d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.10205162
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651910743926565324, guid: ad6fa985ceab7dd41aa4ed3614fab61d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.088999
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651910743926565324, guid: ad6fa985ceab7dd41aa4ed3614fab61d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 23.585852
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651910743926565324, guid: ad6fa985ceab7dd41aa4ed3614fab61d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651910743926565324, guid: ad6fa985ceab7dd41aa4ed3614fab61d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651910743926565324, guid: ad6fa985ceab7dd41aa4ed3614fab61d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651910743926565324, guid: ad6fa985ceab7dd41aa4ed3614fab61d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651910743926565324, guid: ad6fa985ceab7dd41aa4ed3614fab61d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651910743926565324, guid: ad6fa985ceab7dd41aa4ed3614fab61d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651910743926565324, guid: ad6fa985ceab7dd41aa4ed3614fab61d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2651910743926565326, guid: ad6fa985ceab7dd41aa4ed3614fab61d, type: 3}
-      propertyPath: m_Name
-      value: Pooled Audio Source
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ad6fa985ceab7dd41aa4ed3614fab61d, type: 3}
 --- !u!1001 &2970678370268874757
 PrefabInstance:
   m_ObjectHideFlags: 0

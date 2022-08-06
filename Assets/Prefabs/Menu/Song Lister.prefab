@@ -116,8 +116,8 @@ MonoBehaviour:
     audioFilename: 
     gamemode: 
     version: 
-    fullDirectoryPath: 
     songDifficulties: []
+    fullDirectoryPath: 
   songMenuItemPrefab: {fileID: 6164652016752729394, guid: 399b4b06bdc57eb4683aaa841317a18f, type: 3}
   songMenuItemParentTransform: {fileID: 3857533576582932071}
   itemHeight: -0.3
@@ -192,11 +192,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'No songs found!
 
-    Did they load properly from ./StreamingAssets?
+    Did they load properly from the data directory:
+
+    <size=.06>"./Disco
+    Queen Dancing FeVR_Data/StreamingAssets/songs"?</size>
 
 
-    Take
-    a look at the logs, there might be an issue with the metadata.json files!'
+    Take a look at the
+    logs, there might be an issue with the metadata.json files!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 09ff41922e2ca18469dfc585092d666a, type: 2}
   m_sharedMaterial: {fileID: -3933406573493747989, guid: 09ff41922e2ca18469dfc585092d666a, type: 2}

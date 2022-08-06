@@ -25,13 +25,16 @@ public class PlayerJumpInputManager : MonoBehaviour {
     }
 
     private void Update() {
+        if (GameManager.Instance.gameState == GAME_STATE.GAME_ACTIVE) {
+            TestJumping();
+        }
     }
 
     private void UpdateCachedFloorHeight(float newFloorHeight) {
         floorBaseHeight = newFloorHeight;
     }
 
-    public bool IsJumping() {
+    public bool TestJumping() {
         bool isJumping = playerInputMethodManager.footLeft.position.y >= floorBaseHeight + settingsEventChannel.jumpMinHeight
             && playerInputMethodManager.footRight.position.y >= floorBaseHeight + settingsEventChannel.jumpMinHeight;
 

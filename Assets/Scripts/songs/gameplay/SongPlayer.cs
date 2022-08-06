@@ -174,21 +174,31 @@ public class SongPlayer : MonoBehaviour {
         }
     }
 
-    // TODO
-    private float CalculatePerfectScore(SongMetadata songMetadata , SongDifficulty difficulty) {
+    public int CalculateNumNotes(SongMetadata songMetadata , SongDifficulty difficulty) {
         MidiFileContainer song = MidiFileLoader.Load(MidiFileToBytes(songMetadata, difficulty));
         sequencer = new MidiTrackSequencer(song.tracks[difficulty.playerInputMidiTrack], song.division, songMetadata.bpm);
         sequencer.Start();
 
-        //List<MidiEvent> events = sequencer.Advance(songMetadata.audioFilename);
+        // Cheap way of (probably) getting all of the events for the song: Find all of the events over the next hour of midi song
+        // Next steps would be to actually load the audio file from the file system, but due to how I set it up using coroutines, 
+        //  I can't directly return an audio clip (I instead pass it on to an AudioSource).
+        //  Skipping that idea, because I don't wanna instantiate or create a new AudioSource just for this
+        List<MidiEvent> events = sequencer.Advance(60f * 60f);
 
-        // Listen to 
-        // if (events != null) {
-        //     foreach (MidiEvent e in events) {
+        // Count all of the playable notes
+        int numNotes = 0;
+        if (events != null) {
+            foreach (MidiEvent e in events) {
+                if ((int)e.data1 <= 3) {
+                    numNotes++;
+                }
+            }
 
-        //     }
-        // }
-        return 0f;
+            return numNotes;
+        } else {
+            Debug.Log($"Unable to calculate perfect score for song [{songMetadata.songName}] at difficulty [{difficulty.difficultyName}]: there's no midi events in this file!");
+            return -1;
+        }
     }
 
     private bool IsNoteOn(MidiEvent e) {

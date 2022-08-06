@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: difficultySettingsDefault
   m_EditorClassIdentifier: 
   noteLifetime: 1
+  perfectScorePercentageToFeverMode: 0.1
+  feverModeDuration: 10
   thresholdPerfect: 0.05
   thresholdGreat: 0.1
   thresholdGood: 0.175

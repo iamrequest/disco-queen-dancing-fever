@@ -46,6 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsEventChannel: {fileID: 11400000, guid: 8c372322db911e743a4f755830d52be6, type: 2}
+  feverEventChannel: {fileID: 11400000, guid: 11700daddfc5d8d459e737a8ca16519b, type: 2}
+  uiMaterial: {fileID: 2100000, guid: 58ca18cf43e11a14a804846daaf6dd85, type: 2}
+  showAlpha: 0.6
+  fadeDuration: 0.3
 --- !u!1 &7337286458813472797
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +112,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b222183c49708b84e93788ea9e477808, type: 2}
+  - {fileID: 2100000, guid: 58ca18cf43e11a14a804846daaf6dd85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

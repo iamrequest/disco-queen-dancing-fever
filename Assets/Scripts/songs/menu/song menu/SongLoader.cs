@@ -63,6 +63,10 @@ public static class SongLoader {
             if (!IsMetadataFileValid(metadata)) {
                 return null;
             } else {
+                foreach(SongDifficulty difficulty in metadata.songDifficulties) {
+                    difficulty.numNotes = SongPlayer.Instance.CalculateNumNotes(metadata, difficulty);
+                }
+
                 return metadata;
             }
 
@@ -94,10 +98,6 @@ public static class SongLoader {
                 if (!File.Exists(metadata.fullDirectoryPath + "/" + difficulty.midiFilename)) {
                     failureReasons.Add($"Difficulty [{difficulty.difficultyName}] is missing a midi track (File [{metadata.fullDirectoryPath + "/" + difficulty.midiFilename}] doesn't exist)\n");
                 }
-
-                //if (difficulty.perfectScore < 0f) {
-                //    failureReasons.Add($"Difficulty [{difficulty.difficultyName}] has an invalid perfect score (Unable to calculate how many notes are in this difficulty)\n");
-                //}
             }
         }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Maybe todo later: This shouldn't be a singleton, if it's managing only 1 score
 public class ScoreManager : MonoBehaviour {
     public static ScoreManager Instance { get; private set; }
     private void Awake() {
@@ -30,8 +31,13 @@ public class ScoreManager : MonoBehaviour {
     }
 
     private void OnScoreChangeRequest(int scoreChange) {
-        score += scoreChange;
-        scoreEventChannel.SendOnScoreChanged(score - scoreChange, score);
+        if (FeverModeManager.Instance.isFeverModeActive) {
+            score += (2 * scoreChange);
+            scoreEventChannel.SendOnScoreChanged(score - (2 * scoreChange), score);
+        } else {
+            score += scoreChange;
+            scoreEventChannel.SendOnScoreChanged(score - scoreChange, score);
+        }
     }
 
     private void OnGameStateChange(GAME_STATE oldGameState, GAME_STATE newGameState) {

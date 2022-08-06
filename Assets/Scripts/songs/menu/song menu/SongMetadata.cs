@@ -49,4 +49,7 @@ public class SongDifficulty {
     // For some reason, Reaper creates 1-indexed MIDI tracks. So, this is just a nice way of letting the player choose the track, since it seems that different DAWs do it differently.
     [Tooltip("The MIDI track that is responsible for spawning notes for the player to hit.")]
     public int playerInputMidiTrack;
+
+    [Header("Calculated")]
+    public int numNotes;
 }
