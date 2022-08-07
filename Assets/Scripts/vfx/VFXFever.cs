@@ -16,11 +16,13 @@ public class VFXFever : MonoBehaviour {
         gameStateEventChannel.onGameStateChange += OnGameStateChange;
         feverEventChannel.onFeverReady += StartFeverReadyVFX;
         feverEventChannel.onFeverActivated += StartFeverActivatedVFX;
+        feverEventChannel.onFeverFinished += StopVFX;
     }
     private void OnDisable() {
         gameStateEventChannel.onGameStateChange -= OnGameStateChange;
         feverEventChannel.onFeverReady -= StartFeverReadyVFX;
         feverEventChannel.onFeverActivated -= StartFeverActivatedVFX;
+        feverEventChannel.onFeverFinished -= StopVFX;
     }
 
     private void OnGameStateChange(GAME_STATE oldGameState, GAME_STATE newGameState) {
@@ -28,12 +30,12 @@ public class VFXFever : MonoBehaviour {
             case GAME_STATE.GAME_WON:
             case GAME_STATE.GAME_LOST:
             case GAME_STATE.MAIN_MENU:
-                StopVFX();
+                StopVFX(0);
                 break;
         }
     }
 
-    private void StopVFX() {
+    private void StopVFX(int playerIndex) {
         if (feverActivatedVFX) {
             feverActivatedVFX.Stop();
         }
@@ -49,7 +51,7 @@ public class VFXFever : MonoBehaviour {
             feverActivatedVFX.Stop();
         }
         if (feverReadyVFX) {
-            feverReadyVFX.Stop();
+            feverReadyVFX.Play();
         }
     }
 

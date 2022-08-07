@@ -2585,14 +2585,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Note Board
       objectReference: {fileID: 0}
-    - target: {fileID: 2990963843244296906, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_InitialEventName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2990963843244296906, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_InitialEventNameOverriden
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4980512579195001141, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2600,18 +2592,6 @@ PrefabInstance:
     - target: {fileID: 4980512579195001141, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8899113840678354735, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.622
-      objectReference: {fileID: 0}
-    - target: {fileID: 8899113840678354735, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.489
-      objectReference: {fileID: 0}
-    - target: {fileID: 8899113840678354735, guid: 151ebea327f45e547a12acdea7f51578, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.103
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 151ebea327f45e547a12acdea7f51578, type: 3}

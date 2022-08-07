@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,17 +14,21 @@ public class FeverEventChannel : ScriptableObject {
     public UnityAction<int> onFeverFinished;
 
 
+    [ButtonGroup]
     public void SendOnFeverReady(int playerIndex) {
         if (onFeverReady != null) {
             onFeverReady.Invoke(playerIndex);
         }
     }
 
+    [ButtonGroup]
     public void SendOnFeverActivated(int playerIndex) {
         if (onFeverActivated != null) {
             onFeverActivated.Invoke(playerIndex);
         }
     }
+
+    [ButtonGroup]
     public void SendOnFeverFinished(int playerIndex) {
         if (onFeverFinished != null) {
             onFeverFinished.Invoke(playerIndex);
