@@ -1117,6 +1117,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: onGazeSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: ecf12c1b8e3ded544ae251ac099b6f9f, type: 3}
+    - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: onStateChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}

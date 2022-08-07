@@ -1731,8 +1731,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
+      propertyPath: canDeselect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: deselectOnGameState
-      value: 32
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 7987210613349544542, guid: 2356e418de1abc84db348fb7262830e7, type: 3}
       propertyPath: gameStateEventChannel
