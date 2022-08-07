@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ac_cheatMenu
+  m_Controller: {fileID: 9100000, guid: a4bc6e5792a9e0e48b58a1e11c52e964, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4f1c0896899f1ea49a90501fb8452dbc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 72c55e597c0dcb041bbae9e0bd64676c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: dec8e3106613d7e46b32a835d6777ea5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8c47aa4aa87f97e41823371e385afdfc, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 490ceeca4a6aea645b9b479a5326cb7f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 34ace174fb57c6a4c85a5a3780be609e, type: 2}

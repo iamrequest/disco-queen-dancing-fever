@@ -16,7 +16,6 @@ public class LifeManager : MonoBehaviour
     public TextMeshProUGUI uiText;
 
     public int currentHealth;
-    public bool invincibility;
 
     private void OnEnable() {
         gameStateEventChannel.onGameStateChange += OnGameStateChange;
@@ -61,13 +60,13 @@ public class LifeManager : MonoBehaviour
     private void OnNoteMiss(NOTE_BOARD_LANES lane, int playerIndex) {
         if (GameManager.Instance.gameState != GAME_STATE.GAME_ACTIVE) return;
 
-        if(!invincibility) {
-            AdjustHealth(-difficultySettings.damageNoteMiss);
-        }
+        AdjustHealth(-difficultySettings.damageNoteMiss);
         Render();
 
-        if (currentHealth <= 0) {
-            OnDeath();
+        if (!CheatMenu.Instance.noFailMode) {
+            if (currentHealth <= 0) {
+                OnDeath();
+            }
         }
     }
 
@@ -89,10 +88,10 @@ public class LifeManager : MonoBehaviour
     private void Render() {
         lifeSlider.value = (float)currentHealth / (float)difficultySettings.healthMax;
 
-        if (currentHealth > 0) {
-            uiText.lineSpacing = 100;
-            uiText.text = "LIFE";
-        } else {
+        uiText.lineSpacing = 100;
+        uiText.text = "LIFE";
+
+        if (!CheatMenu.Instance.noFailMode && currentHealth <= 0) {
             uiText.lineSpacing = 50;
             uiText.text = "DEAD!";
         }

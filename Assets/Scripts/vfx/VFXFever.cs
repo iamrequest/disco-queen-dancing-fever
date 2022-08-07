@@ -11,6 +11,7 @@ public class VFXFever : MonoBehaviour {
     public VisualEffect feverReadyVFX;
     public VisualEffect feverActivatedVFX;
     public bool stopFeverReadyVFXOnFeverActivated;
+    public bool stayAliveAfterFeverMode;
 
     private void OnEnable() {
         gameStateEventChannel.onGameStateChange += OnGameStateChange;
@@ -36,6 +37,8 @@ public class VFXFever : MonoBehaviour {
     }
 
     private void StopVFX(int playerIndex) {
+        if (stayAliveAfterFeverMode) return;
+
         if (feverActivatedVFX) {
             feverActivatedVFX.Stop();
         }
