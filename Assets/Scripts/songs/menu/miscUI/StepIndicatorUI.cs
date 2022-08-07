@@ -22,17 +22,18 @@ public class StepIndicatorUI : MonoBehaviour {
     private void CalculateUILocalPosition(Transform src, Transform dst) {
         dst.localPosition = new Vector3(ClampValue(src.localPosition.x), ClampValue(src.localPosition.z), 0f);
 
-        float furthestDimensionValue = Mathf.Abs(Mathf.Max(src.localPosition.x, src.localPosition.z));
-        float alpha = alphaLerp.Evaluate(Mathfs.Remap(0f, maxBoundsAlpha, 0f, 1f, furthestDimensionValue));
-        SetAlpha(uiLeftFoot, alpha);
-        SetAlpha(uiRightFoot, alpha);
+        SetAlpha(src, uiLeftFoot);
+        SetAlpha(src, uiRightFoot);
     }
 
     private float ClampValue(float value) {
         return Mathf.Clamp(value, -maxBoundsPos, maxBoundsPos);
     }
 
-    private void SetAlpha(Image img, float a) {
-        img.color = new Color(img.color.r, img.color.g, img.color.b, a);
+    private void SetAlpha(Transform src, Image img) {
+        float furthestDimensionValue = Mathf.Abs(Mathf.Max(src.localPosition.x, src.localPosition.z));
+        float alpha = alphaLerp.Evaluate(Mathfs.Remap(0f, maxBoundsAlpha, 0f, 1f, furthestDimensionValue));
+
+        img.color = new Color(img.color.r, img.color.g, img.color.b, alpha);
     }
 }
