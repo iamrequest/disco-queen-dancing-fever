@@ -61,7 +61,7 @@ public class LifeManager : MonoBehaviour
     private void OnNoteMiss(NOTE_BOARD_LANES lane, int playerIndex) {
         if (GameManager.Instance.gameState != GAME_STATE.GAME_ACTIVE) return;
 
-        if (!invincibility && Application.isEditor) {
+        if(!invincibility) {
             AdjustHealth(-difficultySettings.damageNoteMiss);
         }
         Render();
@@ -90,8 +90,10 @@ public class LifeManager : MonoBehaviour
         lifeSlider.value = (float)currentHealth / (float)difficultySettings.healthMax;
 
         if (currentHealth > 0) {
+            uiText.lineSpacing = 100;
             uiText.text = "LIFE";
         } else {
+            uiText.lineSpacing = 50;
             uiText.text = "DEAD!";
         }
     }
