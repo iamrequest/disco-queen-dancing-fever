@@ -93,3 +93,7 @@ Assets/Plugins/Demigiant.meta
 *.rpp-bak.meta
 *.reapeaks
 *.reapeaks.meta
+
+# Krita backup files
+*.kra~
+*.png~

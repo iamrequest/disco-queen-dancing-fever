@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ac_stepIndicator
+  m_Controller: {fileID: 9100000, guid: a4bc6e5792a9e0e48b58a1e11c52e964, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4f1c0896899f1ea49a90501fb8452dbc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 76a189efaa11e8243978cabae16d24ce, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: dec8e3106613d7e46b32a835d6777ea5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e9591e95a603b7f47ae9c232051e65cd, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 490ceeca4a6aea645b9b479a5326cb7f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 196c59ec6b310654792b197a729bf09a, type: 2}

@@ -60,6 +60,6 @@ Material:
     - _worldSpaceScale: 0.1
     m_Colors:
     - Color_AD7F4BFC: {r: 0.7544315, g: 0.298039, b: 0.8666667, a: 0.6117647}
-    - _Color: {r: 0.7544315, g: 0.29785573, b: 0.8666667, a: 0}
+    - _Color: {r: 0.7544315, g: 0.29785386, b: 0.8666667, a: 0}
     - _color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
