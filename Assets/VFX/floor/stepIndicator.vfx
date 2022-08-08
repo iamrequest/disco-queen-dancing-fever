@@ -33,7 +33,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: simpleOneShot
+  m_Name: stepIndicator
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 0}
@@ -238,7 +238,7 @@ VisualEffectResource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: simpleOneShot
+  m_Name: stepIndicator
   m_Graph: {fileID: 114350483966674976}
   m_Infos:
     m_RendererSettings:
@@ -660,7 +660,7 @@ MonoBehaviour:
   particlePerStripCount: 16
   needsComputeBounds: 0
   boundsMode: 0
-  m_Space: 1
+  m_Space: 0
 --- !u!114 &8926484042661614569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1887,7 +1887,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614629}
       inputSlot: {fileID: 8926484042661614586}
-    position: {x: 775, y: 1199}
+    position: {x: 772, y: 1242}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614629
@@ -2643,7 +2643,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614705}
       inputSlot: {fileID: 8926484042661614594}
-    position: {x: 801, y: 1593}
+    position: {x: 763, y: 1490}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614705
@@ -2887,7 +2887,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614712}
       inputSlot: {fileID: 8926484042661614707}
-    position: {x: 794, y: 1464}
+    position: {x: 784, y: 1439}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614712
@@ -3068,7 +3068,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614718}
       inputSlot: {fileID: 8926484042661614592}
-    position: {x: 801, y: 1353}
+    position: {x: 798, y: 1367}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614718

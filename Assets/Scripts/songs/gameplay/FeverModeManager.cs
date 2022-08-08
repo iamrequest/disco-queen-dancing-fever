@@ -80,7 +80,7 @@ public class FeverModeManager : MonoBehaviour {
         CalculateFeverGauge(newScore);
         Render();
 
-        if (!isFeverModeUsed && !isFeverModeActive) {
+        if (!isFeverModeUsed && !isFeverModeActive && !isFeverModeAvailable) {
             if (feverGauge >= 1f) {
                 isFeverModeAvailable = true;
                 feverEventChannel.SendOnFeverReady(0);

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class VFXNoteLane : MonoBehaviour {
+public class VFXOnNoteHit : MonoBehaviour {
     public NoteHitEventChannel noteHitEventChannel;
 
     public VisualEffect vfxPerfect, vfxGreat, vfxGood;

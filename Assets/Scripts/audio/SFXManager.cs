@@ -30,6 +30,11 @@ public class SFXManager : MonoBehaviour {
         }
     }
 
+    public void PlayRandomSFX(List<AudioClip> clips, Vector3 worldPosition) {
+        if (clips.Count == 0) return;
+        PlaySFX(clips[Random.Range(0, clips.Count - 1)], transform.position);
+    }
+
     public void PlaySFX(AudioClip clip, Vector3 worldPosition) {
         if (clip == null) return;
         if (audioSourcePool.Count == 0) {

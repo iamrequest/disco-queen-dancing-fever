@@ -36,7 +36,7 @@ public class FloorInteractorButton : MonoBehaviour {
     [Button]
     private void OnPress() {
         floorInteractor.SendInput(inputDir);
-        onStepVFX.SendEvent("OnStep"); // TODO: Convert this to hash
+        onStepVFX.Play();
 
         timeSinceLastInput = 0f;
     }

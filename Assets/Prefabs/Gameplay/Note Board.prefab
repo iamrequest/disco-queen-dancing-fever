@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 1112505541}
   - component: {fileID: 1112505540}
   - component: {fileID: 1112505543}
+  - component: {fileID: 5154689980310348298}
   m_Layer: 5
   m_Name: Fever Meter
   m_TagString: Untagged
@@ -199,6 +200,21 @@ MonoBehaviour:
   isFeverModeActive: 0
   isFeverModeAvailable: 0
   isFeverModeUsed: 0
+--- !u!114 &5154689980310348298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112505538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce38309a6461b1243bde909e625b1bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feverEventChannel: {fileID: 11400000, guid: 11700daddfc5d8d459e737a8ca16519b, type: 2}
+  sfxFeverReady: {fileID: 8300000, guid: 5f6a3f7b5cadbf14a8994248a06b2788, type: 3}
+  sfxFeverActivated: {fileID: 8300000, guid: 724b922c7b7fab94aa1c80ebd9cc635d, type: 3}
 --- !u!1 &1204323567
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +746,7 @@ MonoBehaviour:
   feverReadyVFX: {fileID: 7893281397889130425}
   feverActivatedVFX: {fileID: 2990963843244296906}
   stopFeverReadyVFXOnFeverActivated: 0
+  stayAliveAfterFeverMode: 0
 --- !u!1 &1936275853884392711
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,7 +985,6 @@ MonoBehaviour:
   lifeSlider: {fileID: 7308317403113266269}
   uiText: {fileID: 1097639526008356756}
   currentHealth: 0
-  invincibility: 0
 --- !u!1 &2413650745188525819
 GameObject:
   m_ObjectHideFlags: 0
