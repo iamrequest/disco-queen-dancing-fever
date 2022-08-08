@@ -11,7 +11,8 @@ public class SFXFeverMode : MonoBehaviour {
 
     [Title("SFX")]
     public AudioClip sfxFeverReady;
-    public AudioClip sfxFeverActivated;
+    [Tooltip("Play all of these")]
+    public List<AudioClip> sfxFeverActivated; // This should probably be a separate var for each sfx I wanna play at the same time
 
     private void OnEnable() {
         feverEventChannel.onFeverReady += OnFeverReady;
@@ -28,6 +29,10 @@ public class SFXFeverMode : MonoBehaviour {
     }
 
     private void OnFeverActivated(int playerIndex) {
-        if (sfxFeverActivated) SFXManager.Instance.PlaySFX(sfxFeverActivated, Vector3.zero);
+        if (sfxFeverActivated.Count != 0) {
+            foreach (AudioClip ac in sfxFeverActivated) {
+                SFXManager.Instance.PlaySFX(ac, Vector3.zero);
+            }
+        }
     }
 }

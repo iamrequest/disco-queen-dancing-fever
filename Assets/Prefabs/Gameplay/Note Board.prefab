@@ -214,7 +214,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   feverEventChannel: {fileID: 11400000, guid: 11700daddfc5d8d459e737a8ca16519b, type: 2}
   sfxFeverReady: {fileID: 8300000, guid: 5f6a3f7b5cadbf14a8994248a06b2788, type: 3}
-  sfxFeverActivated: {fileID: 8300000, guid: 724b922c7b7fab94aa1c80ebd9cc635d, type: 3}
+  sfxFeverActivated:
+  - {fileID: 8300000, guid: 0fda6925a22e4f549a56850302e9a65b, type: 3}
+  - {fileID: 8300000, guid: 724b922c7b7fab94aa1c80ebd9cc635d, type: 3}
 --- !u!1 &1204323567
 GameObject:
   m_ObjectHideFlags: 0
