@@ -19,9 +19,11 @@ Less interesting but still neat things that are also worth discussing are the ga
 
 One of the main reasons I used this project specifically to try out OpenXR was for Vive/Tundra Tracker support. This project was made with OpenXR 1.4.2, and the XR Interaction Toolkit 2.0.2 - but I was surprised to find that trackers were still not yet officially supported. I had to download an OpenXR profile off of the [Unity forums](https://forum.unity.com/threads/openxr-and-openvr-together.1113136/#post-7803057), which ended up being pretty plug-and-play. The lack of officially-supported features from the SteamVR plugin is the big thing that keeps me back from fully switching to OpenXR (Valve Knuckle finger tracking soon please!), but so far I'm enjoying what I've seen.
 
-Once I had trackers working, there was a handful of things I had to consider from a design standpoint. The first was that I wanted to make sure that the game was fully playable using either trackers, or standard controllers. My solution was to create a separate gameobject for each foot, and have that follow the active controller - whether that be a standard controller, or a Vive/Tundra tracker. The player can switch between using the controller, or trackers, via the settings menu. Making controller/tracker input work identically, regardless of what input method the player was using, made testing really easy.
+Once I had trackers working, there was a handful of things I had to consider from a design standpoint. The first was that I wanted to make sure that the game was fully playable using either trackers, or standard controllers. My solution was to create a separate gameobject for each foot, and have that follow the active controller - whether that be a standard controller, or a Vive/Tundra tracker. The player can switch between using the controller, or trackers, via the settings menu. As an input method, this foot gameobject interacts with the floor buttons via simple trigger colliders. Of course, since the feet need to touch the floor to interact with these colliders, so I added a calibration option that moved the floor up to match the height of the lowest tracker. 
 
-As an input method, this foot gameobject interacts with the floor buttons via simple trigger colliders. Of course, since the feet need to touch the floor to interact with these colliders, so I added a calibration option that moved the floor up to match the height of the lowest tracker. As a next step, I think this calibration step could use a redesign - I noticed that sometimes I could miss some steps, if one of my trackers was positioned slightly higher on one foot. The simple solution would be to move the floor to the height of the highest tracker, or the average height of the two trackers. 
+Making controller/tracker input work identically, regardless of what input method the player was using, made testing really easy. There were some changes to the calibration step that would make input better, but for a simple solution, this worked well. Those changes are discussed later on.
+
+As a next step, I think this calibration step could use a redesign - I noticed that sometimes I could miss some steps, if one of my trackers was positioned slightly higher on one foot. The simple solution would be to move the floor to the height of the highest tracker, or the average height of the two trackers. 
 
 ### Gaze UI Menus
 
@@ -46,7 +48,7 @@ In terms of next steps, I think there would be some use-cases where more UI opti
 
 ### Song Charts using MIDI
 
-A challenge I had going into this project was about how to create the song charts. I really didn't want to have to create my own tool for this, because I really didn't have enough time to make something functional, polished, and tested. I decided to look into how other rhythm-based games did it, starting with Guitar Hero clones, and I stumbled onto [this super informative post about the history of custom Guitar Hero chart formats by Reddit Dot Com user /u/mikex5](https://www.reddit.com/r/CloneHero/comments/8bkb0n/a_brief_history_of_custom_guitar_hero_chart/). The TL;DR is that .midi files were popular which could be made with standard MIDI editors like Reaper, but .chart files were also popular due to an open-source chart editor that could export to human-readable files. I decided to stick to .midi files, since I was already comfortable with working with MIDI tracks in Reaper, and because I found a [small and powerful MIDI reader for Unity (smflite)](https://github.com/keijiro/smflite) that worked perfectly. Given more time, I'd have liked to explore .chart files as an alternative, but .midi files checked all of my requirements right from the beginning. It's possible that it's not the best tool for the job, but it was the tool that did everything I needed, and easily.
+A challenge I had going into this project was about how to create the song charts. I really didn't want to have to create my own tool for this, because I really didn't have enough time to make something functional, polished, and tested. I decided to look into how other rhythm-based games did it, starting with Guitar Hero clones, and I stumbled onto [this super informative post about the history of custom Guitar Hero chart formats by Reddit Dot Com user /u/mikex5](https://www.reddit.com/r/CloneHero/comments/8bkb0n/a_brief_history_of_custom_guitar_hero_chart/). The TL;DR is that .midi files were popular which could be made with standard MIDI editors like Reaper, but .chart files were also popular due to an open-source chart editor that could export to human-readable files. I decided to stick to .midi files, since I was already comfortable with working with MIDI tracks in Reaper, and because I found a [small and powerful MIDI reader for Unity (smflite)](https://github.com/keijiro/smflite) that worked perfectly.
 
 Smflite can read as many MIDI tracks as needed, by returning a list of MidiEvents that occur between the some time T, and the elapsed time since the last check. It's recommended that you check for midi events each frame, passing in Time.deltaTime. 
 
@@ -72,6 +74,10 @@ In the midi file, I had 128 notes at my disposal, about 9.5 octaves. I used the 
 	<img src="./readmeContents/midi-track.png" >
 </p>
 
+
+Given more time, I'd have liked to explore .chart files as an alternative, but .midi files checked all of my requirements right from the beginning. It's possible that it's not the best tool for the job, but it was the tool that did everything I needed, and easily. Writing charts using MIDI files proved to be super easy using Reaper, and it didn't take up too much of my time to chart each song using this method.
+
+
 As a next step here, there were a few things that I wanted to do with the midi files: 
 
 - Play in-scene animations via the .midi file (likely a separate midi track in the same file). 
@@ -94,8 +100,7 @@ An example of a metadata file can be found [here](./Assets/StreamingAssets/songs
 
 One issue I did have, was in loading audio files from the filesystem. I figured that loading .ogg, .mp3, and .wav files would all work the same - but for some reason only .ogg files would load properly. If I recall correctly, the function to load files from the filesystem would work without throwing an error, but I would be left with a null audio clip. Since .ogg files worked as expected, I decided to just use those. Adding support for .wav and .mp3 files should be an easy enough bug-fix ([1](https://answers.unity.com/questions/737002/wav-byte-to-audioclip.html), [2](https://forum.unity.com/threads/loading-wav-files-into-an-audioclip-without-using-www-or-resources-load.409829/)), but it's just something I didn't have time for. I recall seeing that .ogg and .wav files are recommended for looping audio ([something about a delay before playing .mp3 files](https://answers.unity.com/questions/343057/how-do-i-make-unity-seamlessly-loop-my-background.html)), so sticking to .ogg and .wav would be best, to avoid the BGM and the MIDI chart getting out of sync.
 
-Aside from having issues loading the audio files from the filesystem, the workflow I had worked very well. 
-
+Aside from having issues loading the audio files from the filesystem, the workflow I had worked very well. There are some additions that would be nice in terms of custom song support that I discuss later on, in terms of new game modes and high scores.
 
 ### Event Channels
 
