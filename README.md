@@ -21,9 +21,9 @@ When you've mastered the way of the groove, you can load in your own user-genera
 This was my submission to "[VRJam 2022]([https://itch.io/jam/brackeys-7](https://itch.io/jam/vrjam2022))", an 8 day game jam. The goal for this one was to try out OpenXR/XRToolkit, and to (finally) make a project using the Tundra Trackers I bought ages ago.
 
 You can download the game for free [here, on itch.io]([https://request.itch.io/curse-of-the-pinyaata](https://request.itch.io/disco-queen-dancing-fevr)),
-or you can check out my other projects at [request.moe](https://request.moe).
+or you can check out my other projects at [request.moe](https://request.moe). If you're interested, you can read the [postmortem for this project](./postmortem.md).
 
-A postmortem for this project, as well as a tutorial on how to make your own custom tracks is on its way in about a week. Check back soon! In the meantime, you can [take a peek to see how I did it myself](./Assets/StreamingAssets/songs).
+A tutorial on how to make your own custom tracks is on its way in about a week. Check back soon! In the meantime, you can [take a peek to see how I did it myself](./Assets/StreamingAssets/songs).
 
 
 # Credits
