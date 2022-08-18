@@ -1,8 +1,5 @@
 # Disco Queen Dancing FeVR: Custom Song Guide
 
-- Audio bug
-	One thing to keep in mind, is that there seems to be a bug with smflite where MIDI events that start at a time of 0:00 don't get picked up. To work around this, you'll want to add a few 
-
 # Overview
 
 Custom songs are placed in a subdirectory of the folder containing the game executable. Place your custom song directories in `./Disco Queen Dancing FeVR_Data/StreamingAssets/songs/`. Each custom song exists in its own directory.
@@ -43,6 +40,7 @@ Now, create a new track (Track -> Insert new Track), and insert a new MIDI item 
 Double click on the newly created MIDI item to open up the MIDI editor for this item. Scroll down to the bottom. The bottom 4 notes correspond to the 4 input directions.
 
 |MIDI Note|In-game note direction|
+| ---| --- |
 |C-1|Left|
 |C#-1|Up|
 |D-1|Down|
@@ -75,7 +73,7 @@ Optional: If you adjusted the song to add a delay to fix the bug causing MIDI no
 
 ## Editing the metadata file
 
-Once your audio file and exported MIDI charts are ready, place them in a new directory under `./Disco Queen Dancing FeVR_Data/StreamingAssets/songs/`. Copy/paste a metadata file from another song's directory ([or grab one from the git repo](./StreamingAssets/songs/clement-panchout_sweet-70s/metadata.json)) to get a nice template to start from.
+Once your audio file and exported MIDI charts are ready, place them in a new directory under `./Disco Queen Dancing FeVR_Data/StreamingAssets/songs/`. Copy/paste a metadata file from another song's directory ([or grab one from the git repo](./Assets/StreamingAssets/songs/clement-panchout_sweet-70s/metadata.json)) to get a nice template to start from.
 
 The important changes to make are:
 
@@ -91,6 +89,7 @@ Once this is complete, you should be able to run the game and see your song in t
 When preparing to render the song list menu, the game loads all of the songs' metadata files from the filesystem into memory. During this step, there is some validation that is performed. If validation fails, the song will not be loaded into memory, and a log detailing the errors will be printed to the Player Log. This log will be overwritten every time that that the game is run.
 
 |Operating System|Player Log Location|
+| --- | --- |
 |Windows|%USERPROFILE%\AppData\LocalLow\Made by Request\Disco Queen Dancing FeVR\Player.log|
 |Linux|~/.config/unity3d/Made\ by\ Request/Disco\ Queen\ Dancing\ FeVR/Player.log|
 |MacOS|~/Library/Logs/Made\ by\ Request/Disco\ Queen\ Dancing\ FeVR/Player.log|
