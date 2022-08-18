@@ -13,7 +13,7 @@ When you've mastered the way of the groove, you can load in your own user-genera
 - Vive/Tundra tracker support
 - Standard controller support (tape them to your shoes I guess lol)
 - 3 built in songs, each with 3 difficulties
-- Custom song support
+- [Custom song support](./custom-song-guide.md)
 
 
 ## About
@@ -23,7 +23,7 @@ This was my submission to "[VRJam 2022]([https://itch.io/jam/brackeys-7](https:/
 You can download the game for free [here, on itch.io]([https://request.itch.io/curse-of-the-pinyaata](https://request.itch.io/disco-queen-dancing-fevr)),
 or you can check out my other projects at [request.moe](https://request.moe). If you're interested, you can read the [postmortem for this project](./postmortem.md).
 
-A tutorial on how to make your own custom tracks is on its way in about a week. Check back soon! In the meantime, you can [take a peek to see how I did it myself](./Assets/StreamingAssets/songs).
+If you want to make your own custom songs for this game, check out the [custom song guide](./custom-song-guide.md)!
 
 
 # Credits
